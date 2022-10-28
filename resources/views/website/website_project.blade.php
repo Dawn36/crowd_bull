@@ -21,9 +21,13 @@
             <div class="col-md-12">
 
                 <ul class="tableTabs">
-                    <form id="current_open" method="GET" action="{{ route('crowdfunding-projects') }}">
+                    <form id="all" method="GET" action="{{ route('crowdfunding-projects') }}">
                         <input name="current_open" value="" hidden/>
-                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit()">Currently Open</li>
+                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('all').submit()">All</li>
+                </form>
+                    <form id="current_open" method="GET" action="{{ route('crowdfunding-projects') }}">
+                        <input name="current_open" value="current_open" hidden/>
+                    <li class="{{request()->current_open == 'current_open' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit()">Currently Open</li>
                 </form>
                 <form id="fastest_funding_pace" method="GET" action="{{ route('crowdfunding-projects') }}">
                     <input name="current_open" value="fastest_funding_pace" hidden/>

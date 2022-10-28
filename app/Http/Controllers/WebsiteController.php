@@ -42,9 +42,13 @@ class WebsiteController extends Controller
         {
             $project=Project::orderby('average_ticket','ASC')->limit(7)->get();
         }
-        else
+        elseif($request->current_open == 'current_open')
         {
             $project=Project::orderby('id','desc')->where('funding_status','in process')->limit(7)->get();
+        }
+        else
+        {
+            $project=Project::orderby('id','desc')->limit(7)->get();
         }
         
         $blog= DB::select(DB::raw("SELECT *,b.id AS blog_id,b.created_at AS blog_created_at FROM blogs b INNER JOIN `users` u ON u.`id`=b.`user_id` WHERE b.`status`='active' ORDER BY b.`id` DESC LIMIT 3"));
@@ -75,9 +79,13 @@ class WebsiteController extends Controller
         {
             $project=Project::orderby('average_ticket','ASC')->limit(7)->get();
         }
-        else
+        elseif($request->current_open == 'current_open')
         {
             $project=Project::orderby('id','desc')->where('funding_status','in process')->limit(7)->get();
+        }
+        else
+        {
+            $project=Project::orderby('id','desc')->get();
         }
         return view('website/website_project',compact('project'));
     }

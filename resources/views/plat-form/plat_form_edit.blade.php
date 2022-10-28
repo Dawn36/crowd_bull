@@ -62,6 +62,10 @@
             <label class="required fw-bold fs-6 mb-2">Raised This Week</label>
             <input type="text" name="raised_in_past_7_days" value="{{$platForm->raised_in_past_7_days}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised This Week here." required />
         </div>
+        <div class="fv-row mb-7">
+            <label class="required fw-bold fs-6 mb-2">URL</label>
+            <input type="text" name="url" value="{{$platForm->url}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter url here."required />
+        </div>
         <div>
             <label class="form-label">Description</label>
             <textarea hidden  name="description" id='description'>{{$platForm->description}}</textarea>

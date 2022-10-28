@@ -106,7 +106,6 @@
                                             <th>Average Ticket</th>
                                             <th>Funding Pace</th>
                                             <th>Funding Status</th>
-                                            <th>URL</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -136,7 +135,6 @@
                                                 <div class="badge badge-light-success text-success">{{ucwords($project[$i]->funding_status)}} </div>
                                                 
                                             </td>
-                                            <td>{{$project[$i]->url}} </td>
                                             <td>
                                                 <button class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary me-2" onclick="eidtProjects('{{$project[$i]->id}}')">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->

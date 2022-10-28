@@ -47,7 +47,7 @@
                         <td>{{$platForm[$i]->avg_ticket_size}} EUR</td>
                         <td>{{$platForm[$i]->raised_in_past_30_days}} EUR</td>
                         <td>{{$platForm[$i]->raised_in_past_7_days}} EUR</td>
-                        <td><a href="" class="btn btn-primary --small">Register</a></td>
+                        <td><a href="{{$platForm[$i]->url}}" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor
 

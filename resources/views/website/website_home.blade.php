@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <ul class="tableTabs">
+                {{-- <ul class="tableTabs">
                     <form id="all_time" method="GET" action="{{ route('index') }}">
                         <input name="all_time" value="" hidden/>
                     <li class="{{request()->all_time == '' ? "active" : ''}}" onclick=" document.getElementById('all_time').submit()">All Time</li>
@@ -57,7 +57,7 @@
                     <li class="{{request()->all_time == 'this_week' ? "active" : ''}}" onclick=" document.getElementById('this_week').submit()">This Week</li>
                 </form>
 
-                </ul>
+                </ul> --}}
             </div>
             <div class="col-md-12 table-row">
                 <table>
@@ -89,7 +89,7 @@
                         <td>{{$platForm[$i]->avg_ticket_size}} EUR</td>
                         <td>{{$platForm[$i]->raised_in_past_30_days}} EUR</td>
                         <td>{{$platForm[$i]->raised_in_past_7_days}} EUR</td>
-                        <td><a href="" class="btn btn-primary --small">Register</a></td>
+                        <td><a href="{{$platForm[$i]->url}}" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor
 
@@ -114,9 +114,13 @@
             <div class="col-md-12">
 
                 <ul class="tableTabs">
-                    <form id="current_open" method="GET" action="{{ route('index') }}">
+                    <form id="all" method="GET" action="{{ route('crowdfunding-projects') }}">
                         <input name="current_open" value="" hidden/>
-                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit()">Currently Open</li>
+                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('all').submit()">All</li>
+                </form>
+                    <form id="current_open" method="GET" action="{{ route('index') }}">
+                        <input name="current_open" value="current_open" hidden/>
+                    <li class="{{request()->current_open == 'current_open' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit()">Currently Open</li>
                 </form>
                 <form id="fastest_funding_pace" method="GET" action="{{ route('index') }}">
                     <input name="current_open" value="fastest_funding_pace" hidden/>
