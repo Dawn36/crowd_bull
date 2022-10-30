@@ -37,12 +37,13 @@
                     <h4>
                         Articles
                     </h4>
+                    @php
+                    $data=App\Http\Controllers\WebsiteController::footer();
+                    @endphp
                     <ul class="contactDetails">
-                        <li><a href="">what is crowdfunding?</a></li>
-                        <li><a href="">best crowfunding platform</a></li>
-                        <li><a href="">how to invest in crowfunding platforms?</a></li>
-                        <li><a href="">crowfunding platforms compared</a></li>
-                        <li><a href=""> crowfunding investment strategies</a></li>
+                        @for($i=0; $i < count($data); $i++)
+                        <li><a href="{{route('articles')}}">{{ucwords($data[$i]->blog_name)}}</a></li>
+                        @endfor
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 matchheight col-xs-6">
@@ -50,9 +51,9 @@
                         About
                     </h4>
                     <ul class="contactDetails">
-                        <li><a href="about-us.php">About us</a></li>
-                        <li><a href="privacy-policy.php">Privacy Policy</a></li>
-                        <li><a href="ad-policy.php">Ad Policy</a></li>
+                        <li><a href="{{route('about-us')}}">About us</a></li>
+                        <li><a href="{{route('privacy-policy')}}">Privacy Policy</a></li>
+                        <li><a href="{{route('ad-policy')}}">Ad Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +74,7 @@
 </body>
 
 
-<script type="text/javascript" src="js/theme-lib.js"></script>
-<script type="text/javascript" src="js/theme-fun.js"></script>
+<script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script>
+<script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script>
 
 </html>

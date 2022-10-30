@@ -121,5 +121,10 @@ class WebsiteController extends Controller
         $data=array('platFormCount'=>$platFormCount,'project'=>$project,'capital'=>$capital[0]->capital);
         return $data;
     }
+    public static function footer()
+    {
+        $blog=Blog::orderby('id','desc')->limit(5)->get();
+        return $blog;
+    }
     
 }

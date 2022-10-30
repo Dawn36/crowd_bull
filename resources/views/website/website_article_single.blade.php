@@ -39,7 +39,7 @@
         <div class="row">
             @for ($i = 0; $i < count($blog); $i++)
             <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                <div class="box blog" style="height: 541px;">
+                <div class="box blog" style="height: 590px;">
                     <div class="img_node">
                         <img src="{{ asset($blog[$i]->blog_thumbnail)}}" alt="">
                     </div>
