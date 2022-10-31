@@ -1,7 +1,15 @@
 @extends('layouts.main_website')
 
 @section('contentWebsite')
-
+<style>
+    .badge {
+ 
+  color: white;
+  padding: 4px;
+  text-align: center;
+  border-radius: 5px;
+}
+    </style>
 
 <section class="clearfix relative-block hero-banner inside-banner ">
     <div class="container">
@@ -58,6 +66,7 @@
                         <th>Funding progress</th>
                         <th># of Investors </th>
                         <th>Average Ticket </th>
+                        <th>Funding status</th>
                         <th></th>
                     </tr>
                     @for ($i = 0; $i < count($project); $i++) @php $a=$i; $a++; @endphp 
@@ -65,19 +74,27 @@
                         <td>{{$a}}</td>
                         <td>{{ucwords($project[$i]->plat_form)}}</td>
                         <td>{{ucwords($project[$i]->project_name)}}</td>
-                        <td>{{ucwords($project[$i]->goal)}} </td>
+                        <td>{{number_format($project[$i]->goal)}} EUR</td>
                         <td>{{$project[$i]->duration_month}} </td>
-                        <td>{{$project[$i]->interest}} %</td>
-                        <td>{{$project[$i]->ltv}} %</td>
-                        <td>{{$project[$i]->raised_to_date}} EUR</td>
+                        <td>{{$project[$i]->interest}}%</td>
+                        <td>{{$project[$i]->ltv}}%</td>
+                        <td>{{number_format($project[$i]->raised_to_date)}} EUR</td>
                         <td>
                             <div class="progress-bar">
                                 <span class="progress-bar-fill" style="width: {{$project[$i]->funding_progress}}%;" data-width="{{$project[$i]->funding_progress}}"></span>
                             </div>
                         </td>
-                        <td>{{$project[$i]->investors}} </td>
-                        <td>{{$project[$i]->average_ticket}} EUR</td>
-                        <td><a href="{{$project[$i]->url}}" class="btn btn-primary --small">Invest</a></td>
+                        <td>{{number_format($project[$i]->investors)}} </td>
+                        <td>{{number_format($project[$i]->average_ticket)}} EUR</td>
+                        @if($project[$i]->funding_status == 'funded')
+                        @php  $color='#50cd89'@endphp
+                        @elseif($project[$i]->funding_status == 'in process')
+                        @php  $color='#ffc700'@endphp
+                        @elseif($project[$i]->funding_status == 'not funded')
+                        @php  $color='#ffc700'@endphp
+                        @endif
+                        <td style="    width: 109px;"><span class="badge" style=" background-color: {{$color}};">{{ucwords($project[$i]->funding_status)}}</span></td>
+                        <td><a href="{{$project[$i]->url}}" target="_bank" class="btn btn-primary --small">Invest</a></td>
                     </tr>
                     @endfor
                 </table>

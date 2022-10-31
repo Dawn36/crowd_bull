@@ -121,6 +121,7 @@
                                             <td>{{$project[$i]->ltv}} </td>
                                             <td>{{$project[$i]->raised_to_date}} </td>
                                             <td>
+                                               
                                                 <div class="d-flex flex-column w-100">
                                                     <span class="text-gray-600 me-2 fw-bolder">{{$project[$i]->funding_progress}}%</span>
                                                     <div class="progress h-5px w-100">
@@ -132,7 +133,14 @@
                                             <td>{{$project[$i]->average_ticket}} </td>
                                             <td>{{$project[$i]->funding_pace}} </td>
                                             <td>
-                                                <div class="badge badge-light-success text-success">{{ucwords($project[$i]->funding_status)}} </div>
+                                                @if($project[$i]->funding_status == 'funded')
+                                                @php  $color='success'@endphp
+                                                @elseif($project[$i]->funding_status == 'in process')
+                                                @php  $color='warning'@endphp
+                                                @elseif($project[$i]->funding_status == 'not funded')
+                                                @php  $color='warning'@endphp
+                                                @endif
+                                                <div class="badge badge-light-{{$color}} text-{{$color}}">{{ucwords($project[$i]->funding_status)}} </div>
                                                 
                                             </td>
                                             <td>

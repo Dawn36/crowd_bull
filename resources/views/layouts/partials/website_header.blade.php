@@ -59,13 +59,13 @@
                     @endphp
                     <ul>
                         <li>
-                            Tracked Platforms: <span class="fc-primary">{{$data['platFormCount']}}</span>
+                            Tracked Platforms: <span class="fc-primary">{{number_format($data['platFormCount'])}}</span>
                         </li>
                         <li>
-                            Tracked Projects: <span class="fc-primary">{{$data['project']}}</span>
+                            Tracked Projects: <span class="fc-primary">{{number_format($data['project'])}}</span>
                         </li>
                         <li>
-                            Total Capital: <span class="fc-primary">{{$data['capital']}} EUR</span>
+                            Total Capital: <span class="fc-primary">{{number_format($data['capital'])}} EUR</span>
                         </li>
                     </ul>
                 </div>

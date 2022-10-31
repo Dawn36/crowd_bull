@@ -13,7 +13,7 @@
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Goal</label>
-            <input type="text" name="goal" value="{{$project->goal}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Goal here." required />
+            <input type="number" name="goal" value="{{$project->goal}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Goal here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Duration, months</label>
@@ -21,27 +21,27 @@
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Interest</label>
-            <input type="text" name="interest" value="{{$project->interest}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Interest here." required/>
+            <input type="number" name="interest" value="{{$project->interest}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Interest here." required/>
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">LTV</label>
-            <input type="text" name="ltv" value="{{$project->ltv}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your LTV here." required/>
+            <input type="number" name="ltv" value="{{$project->ltv}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your LTV here." required/>
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Raised to date</label>
-            <input type="text" name="raised_to_date" value="{{$project->raised_to_date}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised to date here." required/>
+            <input type="number" name="raised_to_date" value="{{$project->raised_to_date}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised to date here." required/>
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Funding progress</label>
-            <input type="text" name="funding_progress" value="{{$project->funding_progress}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Funding progress here." required/>
+            <input type="number" name="funding_progress" value="{{$project->funding_progress}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Funding progress here." required/>
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2"># of Investors</label>
-            <input type="text" name="investors" value="{{$project->investors}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of Investors here." required/>
+            <input type="number" name="investors" value="{{$project->investors}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of Investors here." required/>
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Average Ticket</label>
-            <input type="text" name="avg_ticket" value="{{$project->average_ticket}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Average Ticket here."required />
+            <input type="number" name="avg_ticket" value="{{$project->average_ticket}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Average Ticket here."required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Funding Pace</label>

@@ -38,19 +38,18 @@
                     <tr>
                         <td>{{$a}}</td>
                         <td>{{ucwords($platForm[$i]->plat_form)}}</td>
-                        <td>{{ucwords($platForm[$i]->capital_raised_to_date)}} </td>
-                        <td>{{ucwords($platForm[$i]->avg_interest_rate)}}</td>
-                        <td>{{$platForm[$i]->no_of_project_funded}}</td>
-                        <td>{{$platForm[$i]->no_of_project_not_funded}}</td>
-                        <td>{{$platForm[$i]->no_of_project_open}}</td>
-                        <td>{{$platForm[$i]->no_of_investors}}</td>
-                        <td>{{$platForm[$i]->avg_ticket_size}} EUR</td>
-                        <td>{{$platForm[$i]->raised_in_past_30_days}} EUR</td>
-                        <td>{{$platForm[$i]->raised_in_past_7_days}} EUR</td>
-                        <td><a href="{{$platForm[$i]->url}}" class="btn btn-primary --small">Register</a></td>
+                        <td>{{number_format($platForm[$i]->capital_raised_to_date)}} EUR</td>
+                        <td>{{number_format($platForm[$i]->avg_interest_rate)}}%</td>
+                        <td>{{number_format($platForm[$i]->no_of_project_funded)}}</td>
+                        <td>{{number_format($platForm[$i]->no_of_project_not_funded)}}</td>
+                        <td>{{number_format($platForm[$i]->no_of_project_open)}}</td>
+                        <td>{{number_format($platForm[$i]->no_of_investors)}}</td>
+                        <td>{{number_format($platForm[$i]->avg_ticket_size)}} EUR</td>
+                        <td>{{number_format($platForm[$i]->raised_in_past_30_days)}} EUR</td>
+                        <td>{{number_format($platForm[$i]->raised_in_past_7_days)}} EUR</td>
+                        <td><a href="{{$platForm[$i]->url}}" target="_bank" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor
-
 
                 </table>
             </div>

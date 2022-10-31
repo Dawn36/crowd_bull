@@ -27,39 +27,39 @@
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Capital raised to date</label>
-            <input type="text" name="capital_raised_to_date" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Capital raised to date here." required />
+            <input type="number" name="capital_raised_to_date" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Capital raised to date here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Avg Interest Rate</label>
-            <input type="text" name="avg_interest_rate" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg Interest Rate here." required />
+            <input type="number" name="avg_interest_rate" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg Interest Rate here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2"># of projects funded</label>
-            <input type="text" name="no_of_project_funded" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of projects funded here." required />
+            <input type="number" name="no_of_project_funded" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of projects funded here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2"># of projects not funded</label>
-            <input type="text" name="no_of_project_not_funded" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of projects not funded here." required />
+            <input type="number" name="no_of_project_not_funded" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of projects not funded here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2"># of open projects</label>
-            <input type="text" name="no_of_project_open" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of projects here." required />
+            <input type="number" name="no_of_project_open" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of projects here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2"># of Investors</label>
-            <input type="text" name="no_of_investors" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of Investors here." required />
+            <input type="number" name="no_of_investors" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of Investors here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Avg. ticket size</label>
-            <input type="text" name="avg_ticket_size" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg. ticket size here." required />
+            <input type="number" name="avg_ticket_size" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg. ticket size here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Raised in the past 30 days</label>
-            <input type="text" name="raised_in_past_30_days" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised in the past 30 days here." required />
+            <input type="number" name="raised_in_past_30_days" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised in the past 30 days here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">Raised This Week</label>
-            <input type="text" name="raised_in_past_7_days" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised This Week here." required />
+            <input type="number" name="raised_in_past_7_days" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised This Week here." required />
         </div>
         <div class="fv-row mb-7">
             <label class="required fw-bold fs-6 mb-2">URL</label>

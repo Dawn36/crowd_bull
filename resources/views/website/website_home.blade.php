@@ -1,7 +1,15 @@
 @extends('layouts.main_website')
 
 @section('contentWebsite')
-
+<style>
+    .badge {
+ 
+  color: white;
+  padding: 4px;
+  text-align: center;
+  border-radius: 5px;
+}
+    </style>
 <section class="clearfix relative-block herobanner">
     <div class="hero relative-block">
         <!-- Loop Section Start -->
@@ -11,10 +19,10 @@
                     <div class="container">
                         <div class="row align-center ">
                             <div class=" col-md-6 ">
-                                <div class="banner-content animated  fadeIn fast" data-aos="fade-up" data-aos-duration="1200">
-                                    <h2 class=" fc-primary title animated  slideInLeft">Bridging the Gaps in Property Finance.</h2>
-                                    <div class="content animated  slideInUp fast">
-                                        <p class="">Invest in carefully selected and pre-vetted real estate investment opportunities across Europe. </p>
+                                <div class="banner-content   fadeIn fast" data-aos="fade-up" data-aos-duration="1200">
+                                    <h2 class=" fc-primary title   slideInLeft">Real estate crowdfunding platforms tracker.</h2>
+                                    <div class="content   slideInUp fast">
+                                        <p class="">Tracking real estate crowdfunding platforms to deliver transparent view and make data driven investment deciions. </p>
                                     </div>
                                 </div>
                             </div>
@@ -80,16 +88,16 @@
                     <tr>
                         <td>{{$a}}</td>
                         <td>{{ucwords($platForm[$i]->plat_form)}}</td>
-                        <td>{{ucwords($platForm[$i]->capital_raised_to_date)}} </td>
-                        <td>{{ucwords($platForm[$i]->avg_interest_rate)}}</td>
-                        <td>{{$platForm[$i]->no_of_project_funded}}</td>
-                        <td>{{$platForm[$i]->no_of_project_not_funded}}</td>
-                        <td>{{$platForm[$i]->no_of_project_open}}</td>
-                        <td>{{$platForm[$i]->no_of_investors}}</td>
-                        <td>{{$platForm[$i]->avg_ticket_size}} EUR</td>
-                        <td>{{$platForm[$i]->raised_in_past_30_days}} EUR</td>
-                        <td>{{$platForm[$i]->raised_in_past_7_days}} EUR</td>
-                        <td><a href="{{$platForm[$i]->url}}" class="btn btn-primary --small">Register</a></td>
+                        <td>{{number_format($platForm[$i]->capital_raised_to_date)}} EUR</td>
+                        <td>{{number_format($platForm[$i]->avg_interest_rate)}}%</td>
+                        <td>{{number_format($platForm[$i]->no_of_project_funded)}}</td>
+                        <td>{{number_format($platForm[$i]->no_of_project_not_funded)}}</td>
+                        <td>{{number_format($platForm[$i]->no_of_project_open)}}</td>
+                        <td>{{number_format($platForm[$i]->no_of_investors)}}</td>
+                        <td>{{number_format($platForm[$i]->avg_ticket_size)}} EUR</td>
+                        <td>{{number_format($platForm[$i]->raised_in_past_30_days)}} EUR</td>
+                        <td>{{number_format($platForm[$i]->raised_in_past_7_days)}} EUR</td>
+                        <td><a href="{{$platForm[$i]->url}}" target="_bank" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor
 
@@ -151,6 +159,7 @@
                         <th>Funding progress</th>
                         <th># of Investors </th>
                         <th>Average Ticket </th>
+                        <th>Funding status</th>
                         <th></th>
                     </tr>
                     @for ($i = 0; $i < count($project); $i++) @php $a=$i; $a++; @endphp 
@@ -158,19 +167,27 @@
                         <td>{{$a}}</td>
                         <td>{{ucwords($project[$i]->plat_form)}}</td>
                         <td>{{ucwords($project[$i]->project_name)}}</td>
-                        <td>{{ucwords($project[$i]->goal)}} EUR</td>
+                        <td>{{number_format($project[$i]->goal)}} EUR</td>
                         <td>{{$project[$i]->duration_month}} </td>
-                        <td>{{$project[$i]->interest}} %</td>
-                        <td>{{$project[$i]->ltv}} %</td>
-                        <td>{{$project[$i]->raised_to_date}} EUR</td>
+                        <td>{{$project[$i]->interest}}%</td>
+                        <td>{{$project[$i]->ltv}}%</td>
+                        <td>{{number_format($project[$i]->raised_to_date)}} EUR</td>
                         <td>
                             <div class="progress-bar">
                                 <span class="progress-bar-fill" style="width: {{$project[$i]->funding_progress}}%;" data-width="{{$project[$i]->funding_progress}}"></span>
                             </div>
                         </td>
-                        <td>{{$project[$i]->investors}} </td>
-                        <td>{{$project[$i]->average_ticket}} EUR</td>
-                        <td><a href="{{$project[$i]->url}}" class="btn btn-primary --small">Invest</a></td>
+                        <td>{{number_format($project[$i]->investors)}} </td>
+                        <td>{{number_format($project[$i]->average_ticket)}} EUR</td>
+                        @if($project[$i]->funding_status == 'funded')
+                        @php  $color='#50cd89'@endphp
+                        @elseif($project[$i]->funding_status == 'in process')
+                        @php  $color='#ffc700'@endphp
+                        @elseif($project[$i]->funding_status == 'not funded')
+                        @php  $color='#ffc700'@endphp
+                        @endif
+                        <td style="    width: 109px;"><span class="badge" style=" background-color: {{$color}};">{{ucwords($project[$i]->funding_status)}}</span></td>
+                        <td><a href="{{$project[$i]->url}}" target="_bank" class="btn btn-primary --small">Invest</a></td>
                     </tr>
                     @endfor
                 </table>
