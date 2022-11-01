@@ -124,8 +124,8 @@ class WebsiteController extends Controller
     public static function footer()
     {
         $blog=Blog::orderby('id','desc')->limit(5)->get();
-        $project=Project::orderby('id','desc')->limit(6)->get();
-        $data=array('blog'=>$blog,'project'=>$project);
+        $platForm=PlatForm::orderby('id','desc')->limit(6)->get();
+        $data=array('blog'=>$blog,'platForm'=>$platForm);
         return $data;
     }
     

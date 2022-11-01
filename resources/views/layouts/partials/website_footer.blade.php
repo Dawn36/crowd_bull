@@ -28,8 +28,8 @@
                         Platforms
                     </h4>
                     <ul class="contactDetails">
-                        @for($i=0; $i < count($data['project']); $i++)
-                        <li><a href="{{$data['project'][$i]->url}}" target="_blank">{{$data['project'][$i]->plat_form}}</a></li>
+                        @for($i=0; $i < count($data['platForm']); $i++)
+                        <li><a href="{{$data['platForm'][$i]->url}}" target="_blank">{{$data['platForm'][$i]->plat_form}}</a></li>
                         @endfor
                     </ul>
                 </div>
