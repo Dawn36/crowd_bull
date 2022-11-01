@@ -1,7 +1,15 @@
 @extends('layouts.main_website')
 
 @section('contentWebsite')
-
+<style>
+    .box.cf-logo .logo img {
+        aspect-ratio: 1/1;
+        height: 115px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+</style>
 <section class="clearfix relative-block hero-banner inside-banner ">
     <div class="container">
         <div class="row">
@@ -74,7 +82,6 @@
         <div class="row">
             <div class="col-md-12">
                 @php echo html_entity_decode($platForm[0]->description) @endphp
-     
             </div>
         </div>
     </div>

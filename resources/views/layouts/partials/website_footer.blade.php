@@ -19,30 +19,28 @@
                     <div class="clearfix h-20"></div>
                 </div>
             </div>
+            @php
+            $data=App\Http\Controllers\WebsiteController::footer();
+            @endphp
             <div class="col-md-7 col-sm-12 col-nopadd" style="display: flex;">
                 <div class="col-md-4 col-sm-6 matchheight col-xs-6">
                     <h4>
                         Platforms
                     </h4>
                     <ul class="contactDetails">
-                        <li><a href="https://crowdestate.com/">crowdestate.com</a></li>
-                        <li><a href="https://estateguru.com/">estateguru.com</a></li>
-                        <li><a href="https://www.profitus.com/">profitus.com</a></li>
-                        <li><a href="https://nordsteet.com/">nordsteet.com</a></li>
-                        <li><a href="https://rendity.com/en">rendity.com</a></li>
-                        <li><a href="https://www.housers.com/en">housers.com</a></li>
+                        @for($i=0; $i < count($data['project']); $i++)
+                        <li><a href="{{$data['project'][$i]->url}}" target="_blank">{{$data['project'][$i]->plat_form}}</a></li>
+                        @endfor
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 matchheight hidden-sm-down" style="min-width:330px;">
                     <h4>
                         Articles
                     </h4>
-                    @php
-                    $data=App\Http\Controllers\WebsiteController::footer();
-                    @endphp
+                 
                     <ul class="contactDetails">
-                        @for($i=0; $i < count($data); $i++)
-                        <li><a href="{{route('articles')}}">{{ucwords($data[$i]->blog_name)}}</a></li>
+                        @for($i=0; $i < count($data['blog']); $i++)
+                        <li><a href="{{route('articles')}}">{{ucwords($data['blog'][$i]->blog_name)}}</a></li>
                         @endfor
                     </ul>
                 </div>

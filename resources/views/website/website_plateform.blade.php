@@ -1,7 +1,15 @@
 @extends('layouts.main_website')
 
 @section('contentWebsite')
-
+<style>
+    .box.cf-logo .logo img {
+        aspect-ratio: 1/1;
+        height: 115px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+</style>
 <section class="clearfix relative-block hero-banner inside-banner ">
     <div class="container">
         <div class="row">
@@ -62,7 +70,6 @@
         <div class="row">
             @for ($i = 0; $i < count($platForm); $i++)
             <div class="col-md-4">
-                <a href="crowdfunding-platform-single.php">
                     <div class="box cf-logo matchheight">
                         <div class="logo">
                             @if($platForm[$i]->plat_form_image == '')
@@ -72,11 +79,8 @@
                             @endif
                         </div>
                     </div>
-                </a>
             </div>
             @endfor
-
-           
         </div>
     </div>
 </section>
