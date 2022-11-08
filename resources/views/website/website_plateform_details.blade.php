@@ -50,7 +50,7 @@
                         <th># of Investors</th>
                         <th>Avg. ticket size</th>
                         <th>Raised in the past 30 days</th>
-                        <th>Raised This Week</th>
+                        <th style="width: 116px;">Raised This Week</th>
                         <th> </th>
                     </tr>
                     @for ($i = 0; $i < count($platForm); $i++) @php $a=$i; $a++; @endphp 

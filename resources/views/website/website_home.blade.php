@@ -22,7 +22,7 @@
                                 <div class="banner-content   fadeIn fast" data-aos="fade-up" data-aos-duration="1200">
                                     <h2 class=" fc-primary title   slideInLeft">Real estate crowdfunding platforms tracker.</h2>
                                     <div class="content   slideInUp fast">
-                                        <p class="">Tracking real estate crowdfunding platforms to deliver transparent view and make data driven investment deciions. </p>
+                                        <p class="">Tracking real estate crowdfunding platforms to deliver transparent view and to make data driven investment decisions. </p>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
         <div class="row tnstr ta-center">
             <div class="col-md-12 mbpx-40">
                 <p class="subtitle">Real Estate</p>
-                <h2 class="fc-primary title ">CrowdFunding Platform</h2>
+                <h2 class="fc-primary title ">CrowdFunding PlatformS</h2>
             </div>
         </div>
         <div class="row">
@@ -80,7 +80,7 @@
                         <th># of Investors</th>
                         <th>Avg. ticket size</th>
                         <th>Raised in the past 30 days</th>
-                        <th>Raised This Week</th>
+                        <th style="width: 116px;">Raised This Week</th>
                         <th> </th>
                     </tr>
                     @for ($i = 0; $i < count($platForm); $i++) @php $a=$i; $a++; @endphp 
@@ -151,11 +151,11 @@
                         <th>#</th>
                         <th>Platform</th>
                         <th>Project Name</th>
-                        <th>Goal</th>
+                        <th style="width: 116px;">Goal</th>
                         <th>Duration, months</th>
                         <th>Interest</th>
                         <th>LTV</th>
-                        <th>Raised to date</th>
+                        <th style="width: 116px;">Raised to date</th>
                         <th>Funding progress</th>
                         <th># of Investors </th>
                         <th>Average Ticket </th>

@@ -27,28 +27,28 @@ class WebsiteController extends Controller
         }
         else
         {
-            $platForm=PlatForm::orderby('id','desc')->limit(7)->get();
+            $platForm=PlatForm::orderby('capital_raised_to_date','desc')->limit(7)->get();
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if($request->current_open == 'fastest_funding_pace')
         {
-            $project=Project::orderby('funding_pace','ASC')->limit(7)->get();
+            $project=Project::orderby('funding_pace','ASC')->limit(30)->get();
         }
         elseif($request->current_open == 'added')
         {
-            $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->limit(7)->get();
+            $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->limit(30)->get();
         }
         elseif($request->current_open == 'large')
         {
-            $project=Project::orderby('average_ticket','ASC')->limit(7)->get();
+            $project=Project::orderby('average_ticket','desc')->limit(30)->get();
         }
         elseif($request->current_open == 'current_open')
         {
-            $project=Project::orderby('id','desc')->where('funding_status','in process')->limit(7)->get();
+            $project=Project::orderby('id','desc')->where('funding_status','in process')->limit(30)->get();
         }
         else
         {
-            $project=Project::orderby('id','desc')->limit(7)->get();
+            $project=Project::orderby('id','desc')->limit(30)->get();
         }
         
         $blog= DB::select(DB::raw("SELECT *,b.id AS blog_id,b.created_at AS blog_created_at FROM blogs b INNER JOIN `users` u ON u.`id`=b.`user_id` WHERE b.`status`='active' ORDER BY b.`id` DESC LIMIT 3"));
@@ -69,19 +69,19 @@ class WebsiteController extends Controller
     {
         if($request->current_open == 'fastest_funding_pace')
         {
-            $project=Project::orderby('funding_pace','ASC')->limit(7)->get();
+            $project=Project::orderby('funding_pace','ASC')->get();
         }
         elseif($request->current_open == 'added')
         {
-            $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->limit(7)->get();
+            $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->get();
         }
         elseif($request->current_open == 'large')
         {
-            $project=Project::orderby('average_ticket','ASC')->limit(7)->get();
+            $project=Project::orderby('average_ticket','ASC')->get();
         }
         elseif($request->current_open == 'current_open')
         {
-            $project=Project::orderby('id','desc')->where('funding_status','in process')->limit(7)->get();
+            $project=Project::orderby('id','desc')->where('funding_status','in process')->get();
         }
         else
         {
@@ -124,7 +124,7 @@ class WebsiteController extends Controller
     public static function footer()
     {
         $blog=Blog::orderby('id','desc')->limit(5)->get();
-        $platForm=PlatForm::orderby('id','desc')->limit(6)->get();
+        $platForm=PlatForm::orderby('id','desc')->limit(7)->get();
         $data=array('blog'=>$blog,'platForm'=>$platForm);
         return $data;
     }

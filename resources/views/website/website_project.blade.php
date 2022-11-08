@@ -58,11 +58,11 @@
                         <th>#</th>
                         <th>Platform</th>
                         <th>Project Name</th>
-                        <th>Goal</th>
+                        <th style="width: 116px;">Goal</th>
                         <th>Duration, months</th>
                         <th>Interest</th>
                         <th>LTV</th>
-                        <th>Raised to date</th>
+                        <th style="width: 116px;">Raised to date</th>
                         <th>Funding progress</th>
                         <th># of Investors </th>
                         <th>Average Ticket </th>
@@ -98,6 +98,7 @@
                     </tr>
                     @endfor
                 </table>
+                
             </div>
         </div>
     </div>

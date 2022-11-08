@@ -28,9 +28,15 @@
                         Platforms
                     </h4>
                     <ul class="contactDetails">
-                        @for($i=0; $i < count($data['platForm']); $i++)
-                        <li><a href="{{$data['platForm'][$i]->url}}" target="_blank">{{$data['platForm'][$i]->plat_form}}</a></li>
-                        @endfor
+                        {{-- @for($i=0; $i < count($data['platForm']); $i++)
+                        <a href="{{$data['platForm'][$i]->url}}" target="_blank">{{$data['platForm'][$i]->plat_form}}</a>
+                        @endfor --}}
+                        <li><a href="https://estateguru.co/" target="_blank">Estateguru.co</a></li>
+                        <li><a href="https://www.housers.com/en" target="_blank">Housers.com</a></li>
+                        <li><a href="https://crowdestate.eu/" target="_blank">Crowdestate.eu</a></li>
+                        <li><a href="https://rendity.com/en" target="_blank">Rendity.com</a></li>
+                        <li><a href="https://www.profitus.com/" target="_blank">Profitus.com</a></li>
+                        <li><a href="https://nordstreet.com/" target="_blank">Nordstreet.com</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 matchheight hidden-sm-down" style="min-width:330px;">
