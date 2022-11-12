@@ -10,7 +10,7 @@
   border-radius: 5px;
 }
     </style>
-<section class="clearfix relative-block herobanner">
+<section class="clearfix relative-block herobanner ">
     <div class="hero relative-block">
         <!-- Loop Section Start -->
         <div class="slide">
@@ -124,23 +124,23 @@
                 <ul class="tableTabs">
                     <form id="all" method="GET" action="{{ route('crowdfunding-projects') }}">
                         <input name="current_open" value="" hidden/>
-                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('all').submit()">All</li>
+                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('all').submit();myFunction()">All</li>
                 </form>
                     <form id="current_open" method="GET" action="{{ route('index') }}">
                         <input name="current_open" value="current_open" hidden/>
-                    <li class="{{request()->current_open == 'current_open' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit()">Currently Open</li>
+                    <li class="{{request()->current_open == 'current_open' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit();myFunction()">Currently Open</li>
                 </form>
                 <form id="fastest_funding_pace" method="GET" action="{{ route('index') }}">
                     <input name="current_open" value="fastest_funding_pace" hidden/>
-                    <li class="{{request()->current_open == 'fastest_funding_pace' ? "active" : ''}}" onclick=" document.getElementById('fastest_funding_pace').submit()">Fastest funding pace</li>
+                    <li class="{{request()->current_open == 'fastest_funding_pace' ? "active" : ''}}" onclick=" document.getElementById('fastest_funding_pace').submit();myFunction()">Fastest funding pace</li>
                 </form>
                 <form id="added" method="GET" action="{{ route('index') }}">
                     <input name="current_open" value="added" hidden/>
-                    <li class="{{request()->current_open == 'added' ? "active" : ''}}" onclick=" document.getElementById('added').submit()">Added this week</li>
+                    <li class="{{request()->current_open == 'added' ? "active" : ''}}" onclick=" document.getElementById('added').submit();myFunction()">Added this week</li>
                 </form>
                 <form id="large" method="GET" action="{{ route('index') }}">
                     <input name="current_open" value="large" hidden/>
-                    <li class="{{request()->current_open == 'large' ? "active" : ''}}" onclick=" document.getElementById('large').submit()">Largest Tickets</li>
+                    <li class="{{request()->current_open == 'large' ? "active" : ''}}" onclick=" document.getElementById('large').submit();myFunction()">Largest Tickets</li>
                 </form>
 
                 </ul>
@@ -159,6 +159,7 @@
                         <th>Funding progress</th>
                         <th># of Investors </th>
                         <th>Average Ticket </th>
+                        <th>Funding Pace </th>
                         <th>Funding status</th>
                         <th></th>
                     </tr>
@@ -179,6 +180,7 @@
                         </td>
                         <td>{{number_format($project[$i]->investors)}} </td>
                         <td>{{number_format($project[$i]->average_ticket)}} EUR</td>
+                        <td>{{number_format($project[$i]->funding_pace)}} </td>
                         @if($project[$i]->funding_status == 'funded')
                         @php  $color='#50cd89'@endphp
                         @elseif($project[$i]->funding_status == 'in process')
@@ -219,10 +221,10 @@
                             Guides
                         </p>
                         <h5 class="fc-black title matchheight">
-                            <a href="{{route('article-single',$blog[$i]->blog_id)}}"> {{ucwords($blog[$i]->blog_name)}}</a>
+                            <a href="{{route('article-single',$blog[$i]->blog_id)}}"> {{substr(ucwords($blog[$i]->blog_name),0,60)}}</a>
                         </h5>
                         <p>
-                            {{substr(ucfirst(strip_tags($blog[$i]->description)), 0, 200).'...'}}
+                            @php echo html_entity_decode(substr($blog[$i]->description, 0, 200)) @endphp
                             <a href="{{route('article-single',$blog[$i]->blog_id)}}" class="subtitle">Read More</a>
                         </p>
                         <div class="profile">
@@ -267,5 +269,16 @@
         </div>
     </div>
 </section>
+<script>
+ topaaaa = localStorage.getItem("sidebar-scroll");
+if (topaaaa !== null) {
+  window.scrollTo(0, topaaaa);
+  localStorage.clear();
+}
 
+function myFunction() {
+    localStorage.setItem("sidebar-scroll",$(document).scrollTop() );
+}
+
+    </script>
 @endsection('contentWebsite')

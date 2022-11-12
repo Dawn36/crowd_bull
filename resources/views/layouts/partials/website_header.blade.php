@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('theme/website-assets/style.css')}}">
 </head>
 
-<body class="Homepage ">
+<body class="Homepage " id='sidebar' >
 
     <!-- Mobile Navigation Start-->
     <div class="mobile-nav" id="nav">

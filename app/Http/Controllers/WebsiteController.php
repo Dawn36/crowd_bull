@@ -13,22 +13,8 @@ class WebsiteController extends Controller
     public function home(Request $request)
     {
         
-        if($request->all_time == 'ytd')
-        {
-            $platForm=PlatForm::whereYear('created_at', '=', date('Y'))->orderby('id','desc')->limit(7)->get();
-        }
-        elseif($request->all_time == 'past')
-        {
-            $platForm=PlatForm::where('created_at', '>', now()->subDays(30)->endOfDay())->orderby('id','desc')->limit(7)->get();
-        }
-        elseif($request->all_time == 'this_week')
-        {
-            $platForm=PlatForm::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->limit(7)->get();
-        }
-        else
-        {
+        
             $platForm=PlatForm::orderby('capital_raised_to_date','desc')->limit(7)->get();
-        }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if($request->current_open == 'fastest_funding_pace')
         {
@@ -56,12 +42,12 @@ class WebsiteController extends Controller
     }
     public function platForm()
     {
-        $platForm=PlatForm::orderby('id','desc')->get();
+        $platForm=PlatForm::orderby('capital_raised_to_date','desc')->get();
         return view('website/website_plateform',compact('platForm'));
     }
     public function platFormDetails($id)
     {
-        $platForm=PlatForm::where('id',$id)->orderby('id','desc')->get();
+        $platForm=PlatForm::where('id',$id)->orderby('capital_raised_to_date','desc')->get();
         return view('website/website_plateform_details',compact('platForm'));
     }
     
@@ -77,7 +63,7 @@ class WebsiteController extends Controller
         }
         elseif($request->current_open == 'large')
         {
-            $project=Project::orderby('average_ticket','ASC')->get();
+            $project=Project::orderby('average_ticket','desc')->get();
         }
         elseif($request->current_open == 'current_open')
         {
