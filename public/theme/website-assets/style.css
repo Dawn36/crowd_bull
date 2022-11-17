@@ -14796,23 +14796,23 @@ section.faqContact form .wpforms-submit-container button {
 }
 
 .box.cf-logo {
-    background-color: #0066f9;
-    padding: 30px 20px;
+    /* background-color: #0066f9; */
+    padding: 30px 30px;
     margin-bottom: 30px;
     text-align: center;
-    box-shadow: 0px 0px 14px 3px #00000024;
+    /* box-shadow: 0px 0px 14px 3px #00000024; */
 }
 
 .box.cf-logo .logo {
-    background-color: white;
+    /* background-color: white;
     padding: 15px;
     border-radius: 50%;
-    display: inline-block;
+    display: inline-block; */
     margin: auto;
 }
 
 .box.cf-logo .logo img {
-    aspect-ratio: 1/1;
+    /* aspect-ratio: 1/1; */
 }
 
 .box.commenttbox {

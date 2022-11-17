@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="fc-primary">{{ucwords($blogDetails[0]->blog_name)}}</h3>
+                <h1 class="fc-primary">{{ucwords($blogDetails[0]->blog_name)}}</h1>
                 <p class="fw-semi-bold">Crowestate Platform, Posted On : {{DATE("F j, Y",strtotime($blogDetails[0]->blog_created_at))}}</p>
 
                 <div class="img-node mbpx-10 pbpx-20">

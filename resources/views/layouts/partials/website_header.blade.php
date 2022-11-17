@@ -2,20 +2,14 @@
 <html ng-app="app" lang="en" class="no-js">
 
 <head>
-    <title>Crowd Bull - 
-        {{ Route::currentRouteName() == 'index'   ? 'Home Page' : '' }}
-        {{ Route::currentRouteName() == 'crowdfunding-platform'   ? 'Crowdfunding Platform' : '' }}
-        {{ Route::currentRouteName() == 'crowdfunding-projects'   ? 'Crowdfunding Projects' : '' }}
-        {{ Route::currentRouteName() == 'articles'   ? 'Articles' : '' }}
-        {{ Route::currentRouteName() == 'about-us'   ? 'About Us' : '' }}
-        {{ Route::currentRouteName() == 'privacy-policy'   ? 'Privacy Policy' : '' }}
-        {{ Route::currentRouteName() == 'ad-policy'   ? 'Ad Policy' : '' }}
+    <title>Crowdbulls – real estate crowdfunding platform tracker.
     </title>
     <meta charset="Crowd Funding Site">
-    <meta name="description" content="Just a New Crowd Bull Website">
+    <meta name="description" content="Crowdbulls tracks new projects, funding progress, interest rates and overall development of the real estate crowdfunding platforms in scope. Crowdbulls provides comparison both on real estate crowdfunding platforms as well as on projects level.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ asset('theme/website-assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{{ asset('theme/website-assets/style.css')}}">
+    <link rel=“canonical” href=“https://crowdbulls.com/” />
 </head>
 
 <body class="Homepage " id='sidebar' >
@@ -24,7 +18,7 @@
     <div class="mobile-nav" id="nav">
         <div class="mob-nav-logo bg-white ptpx-15 pbpx-15 plpx-15 prpx-15 ">
             <a href="index.php" class="custom-logo-link col-xs-8">
-                <img src="{{ asset('theme/website-assets/images/Crowdbull-logo.svg')}}" class="custom-logo">
+                <img src="{{ asset('theme/website-assets/images/Crowdbull-logo.svg')}}" alt="Crowdbull-logo" class="custom-logo">
             </a>
         </div>
         <nav>
@@ -81,14 +75,14 @@
             <div class="row align-center">
                 <div class="col-md-4 col-xs-8">
                     <a href="{{route('index')}}" class="custom-logo-link">
-                        <img src="{{ asset('theme/website-assets/images/Crowdbull-logo.svg')}}" class="custom-logo">
+                        <img src="{{ asset('theme/website-assets/images/Crowdbull-logo.svg')}}" alt="Crowdbull-logo" class="custom-logo">
                     </a>
                 </div>
                 <div class="col-md-8 hidden-md-down">
                     <nav class="pn">
                         <ul class="mainnav">
                             <li class="menu-item {{ Route::currentRouteName() == 'index'   ? 'active' : '' }}"><a href="{{route('index')}}" class="ss">Home</a></li>
-                            <li class="menu-item {{ (Route::currentRouteName() == 'crowdfunding-platform' || Route::currentRouteName() == 'crowdfunding-platform-single')   ? 'active' : '' }}"><a href="{{route('crowdfunding-platform')}}" class="ss">Platforms</a></li>
+                            <li class="menu-item {{ (Route::currentRouteName() == 'crowdfunding-platform' || Route::currentRouteName() == 'crowdfunding-platforms')   ? 'active' : '' }}"><a href="{{route('crowdfunding-platform')}}" class="ss">Platforms</a></li>
                             <li class="menu-item {{ (Route::currentRouteName() == 'crowdfunding-projects'  )  ? 'active' : '' }}"><a href="{{route('crowdfunding-projects')}}" class="ss">Projects</a></li>
                             <li class="menu-item {{ (Route::currentRouteName() == 'articles' || Route::currentRouteName() == 'article-single')   ? 'active' : '' }}"><a href="{{route('articles')}}" class="ss">Articles</a></li>
                             <li class="menu-item {{ (Route::currentRouteName() == 'about-us' || Route::currentRouteName() == 'privacy-policy' || Route::currentRouteName() == 'ad-policy')   ? 'active' : '' }}"><a href="{{route('about-us')}}" class="ss">About</a></li>
@@ -98,3 +92,4 @@
             </div>
         </div>
     </header>
+    <div id="omnisend-embedded-v2-6372ac85ccad48a8e412b185"></div>

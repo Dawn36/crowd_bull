@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5 offset-md-1 prpx-0 col-xs-nopadd img-div">
-                                <img src="{{ asset('theme/website-assets/images/banner-img.svg')}}">
+                                <img src="{{ asset('theme/website-assets/images/banner-img.svg')}}" alt="banner-img">
                             </div>
                         </div>
                     </div>
@@ -72,15 +72,15 @@
                     <tr>
                         <th>#</th>
                         <th>Platform</th>
-                        <th>Capital raised to date</th>
+                        <th>Capital raised to date, EUR</th>
                         <th>Avg interest rate</th>
                         <th># of projects funded</th>
                         <th># of projects not funded</th>
                         <th># of open projects</th>
                         <th># of Investors</th>
-                        <th>Avg. ticket size</th>
-                        <th>Raised in the past 30 days</th>
-                        <th style="width: 116px;">Raised This Week</th>
+                        <th>Avg. ticket size, EUR</th>
+                        <th>Raised in the past 30 days, EUR</th>
+                        <th style="width: 116px;">Raised This Week, EUR</th>
                         <th> </th>
                     </tr>
                     @for ($i = 0; $i < count($platForm); $i++) @php $a=$i; $a++; @endphp 
@@ -88,15 +88,15 @@
                     <tr>
                         <td>{{$a}}</td>
                         <td>{{ucwords($platForm[$i]->plat_form)}}</td>
-                        <td>{{number_format($platForm[$i]->capital_raised_to_date)}} EUR</td>
-                        <td>{{number_format($platForm[$i]->avg_interest_rate)}}%</td>
-                        <td>{{number_format($platForm[$i]->no_of_project_funded)}}</td>
-                        <td>{{number_format($platForm[$i]->no_of_project_not_funded)}}</td>
-                        <td>{{number_format($platForm[$i]->no_of_project_open)}}</td>
-                        <td>{{number_format($platForm[$i]->no_of_investors)}}</td>
-                        <td>{{number_format($platForm[$i]->avg_ticket_size)}} EUR</td>
-                        <td>{{number_format($platForm[$i]->raised_in_past_30_days)}} EUR</td>
-                        <td>{{number_format($platForm[$i]->raised_in_past_7_days)}} EUR</td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->capital_raised_to_date)}} </td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->avg_interest_rate)}}%</td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_funded)}}</td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_not_funded)}}</td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_open)}}</td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->no_of_investors)}}</td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->avg_ticket_size)}} </td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->raised_in_past_30_days)}} </td>
+                        <td style="text-align: right;">{{number_format($platForm[$i]->raised_in_past_7_days)}} </td>
                         <td><a href="{{$platForm[$i]->url}}" target="_bank" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor
@@ -104,7 +104,7 @@
                 </table>
             </div>
             <div class="col-md-12 ta-center mtpx-30">
-                <a href="{{route('crowdfunding-platform')}}" class="btn btn-primary">More</a>
+                <a href="{{route('crowdfunding-platform')}}"  class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
@@ -151,14 +151,14 @@
                         <th>#</th>
                         <th>Platform</th>
                         <th>Project Name</th>
-                        <th style="width: 116px;">Goal</th>
+                        <th style="width: 116px;">Goal, EUR</th>
                         <th>Duration, months</th>
                         <th>Interest</th>
                         <th>LTV</th>
-                        <th style="width: 116px;">Raised to date</th>
+                        <th style="width: 116px;">Raised to date, EUR</th>
                         <th>Funding progress</th>
                         <th># of Investors </th>
-                        <th>Average Ticket </th>
+                        <th>Average Ticket, EUR </th>
                         <th>Funding Pace </th>
                         <th>Funding status</th>
                         <th></th>
@@ -168,19 +168,19 @@
                         <td>{{$a}}</td>
                         <td>{{ucwords($project[$i]->plat_form)}}</td>
                         <td>{{ucwords($project[$i]->project_name)}}</td>
-                        <td>{{number_format($project[$i]->goal)}} EUR</td>
+                        <td style="text-align: right;">{{number_format($project[$i]->goal)}} </td>
                         <td>{{$project[$i]->duration_month}} </td>
                         <td>{{$project[$i]->interest}}%</td>
                         <td>{{$project[$i]->ltv}}%</td>
-                        <td>{{number_format($project[$i]->raised_to_date)}} EUR</td>
+                        <td style="text-align: right;">{{number_format($project[$i]->raised_to_date)}} </td>
                         <td>
                             <div class="progress-bar">
                                 <span class="progress-bar-fill" style="width: {{$project[$i]->funding_progress}}%;" data-width="{{$project[$i]->funding_progress}}"></span>
                             </div>
                         </td>
-                        <td>{{number_format($project[$i]->investors)}} </td>
-                        <td>{{number_format($project[$i]->average_ticket)}} EUR</td>
-                        <td>{{number_format($project[$i]->funding_pace)}} </td>
+                        <td style="text-align: right;">{{number_format($project[$i]->investors)}} </td>
+                        <td style="text-align: right;">{{number_format($project[$i]->average_ticket)}} </td>
+                        <td style="text-align: right;">{{number_format($project[$i]->funding_pace)}} </td>
                         @if($project[$i]->funding_status == 'funded')
                         @php  $color='#50cd89'@endphp
                         @elseif($project[$i]->funding_status == 'in process')
@@ -251,19 +251,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3>What is crowdfunding?</h3>
+                <h1>What is crowdfunding?</h1>
                 <p>Crowdfunding is a capital raising process, during which capital is raised from the public via open process. Public entails both private individuals or institutional investors. Usually, crowdfunding is used when other types of capital raising is not possible due to various factors, e.g., risk profile. There might be some cases, when crowdfunding campaigns are being used as a marketing tool to market the product, service or project itself.</p>
 
-                <h4>What is a real estate crowdfunding?</h4>
+                <h2>What is a real estate crowdfunding?</h2>
                 <p>Real estate crowdfunding is a capital raising process, during which capital for real estate project financing is being raised from the public via open sources. Developers are using real estate crowdfunding process, when bank financing considers this as of a higher risk project and other alternative capital raising sources are not available. A typical element in real estate crowdfunding is real estate pledge as a security for the investors.</p>
 
-                <h4>What is a real estate crowdfunding platform?</h4>
+                <h2>What is a real estate crowdfunding platform?</h2>
                 <p>Real estate crowdfunding platform is a middle man between the borrowers and investors. Real estate crowdfunding platform business is a licensed business in EU and regulated by central banks. Therefore, real estate platforms must comply with the central bank requirements, such as: have integral process and procedures how they operate, approved risk scoring models and etc. Platforms themselves also make the borrowing, investing and management process convenient. They ensure that proper documentation is in place, pledges are properly secured, interest payment process is smooth and etc.</p>
 
-                <h4>What is a real estate crowdfunding project?</h4>
+                <h2>What is a real estate crowdfunding project?</h2>
                 <p>Real estate crowdfunding project is real estate development project, for which capital is being raised via real estate crowdfunding platform. Typically, developers of such projects cannot get bank financing, therefore is moving towards more expensive way of raising capital. In exchange for capital, project developer is pledging real estate assets (land or construction).</p>
 
-                <h4>How to invest in real estate crowdfunding process?</h4>
+                <h2>How to invest in real estate crowdfunding process?</h2>
                 <p>First of all, an investor should select a preferred platform, where he or she wants to invest. A broader description and comparison of various platforms could be found here. Secondly, each regulated platform applies a KYC procedure, which usually contains a self onboarding process with taking a picture of yourself, filling up a questionnaire and supplying additional information. Onboarding process can take from 15min mins to 24 hours depending on the platform and KYC provider platforms are using. After onboarding yourself, you can select the preferred project and invest. Depending from the platform, minimum investments start with as little as 100 EUR.</p>
             </div>
         </div>

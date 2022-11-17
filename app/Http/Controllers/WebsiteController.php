@@ -45,9 +45,9 @@ class WebsiteController extends Controller
         $platForm=PlatForm::orderby('capital_raised_to_date','desc')->get();
         return view('website/website_plateform',compact('platForm'));
     }
-    public function platFormDetails($id)
+    public function platFormDetails($platFormName)
     {
-        $platForm=PlatForm::where('id',$id)->orderby('capital_raised_to_date','desc')->get();
+        $platForm=PlatForm::where('plat_form',$platFormName)->orderby('capital_raised_to_date','desc')->get();
         return view('website/website_plateform_details',compact('platForm'));
     }
     

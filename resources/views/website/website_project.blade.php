@@ -15,8 +15,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="subtitle fc-black fw-semi-bold fs-medium tt-uppercase">Real Estate</p>
-                <h1 class="title">Crowdfunding Projects</h1>
+                {{-- <p class="subtitle fc-black fw-semi-bold fs-medium tt-uppercase">Real Estate</p>
+                <h1 class="title">Crowdfunding Projects</h1> --}}
+                <h1 class="title">Real Estate Crowdfunding Projects</h1>
             </div>
         </div>
     </div>
@@ -58,14 +59,14 @@
                         <th>#</th>
                         <th>Platform</th>
                         <th>Project Name</th>
-                        <th style="width: 116px;">Goal</th>
+                        <th style="width: 116px;">Goal, EUR</th>
                         <th>Duration, months</th>
                         <th>Interest</th>
                         <th>LTV</th>
-                        <th style="width: 116px;">Raised to date</th>
+                        <th style="width: 116px;">Raised to date, EUR</th>
                         <th>Funding progress</th>
                         <th># of Investors </th>
-                        <th>Average Ticket </th>
+                        <th>Average Ticket, EUR</th>
                         <th>Funding Pace</th>
                         <th>Funding status</th>
                         <th></th>
@@ -75,19 +76,19 @@
                         <td>{{$a}}</td>
                         <td>{{ucwords($project[$i]->plat_form)}}</td>
                         <td>{{ucwords($project[$i]->project_name)}}</td>
-                        <td>{{number_format($project[$i]->goal)}} EUR</td>
+                        <td style="text-align: right;">{{number_format($project[$i]->goal)}} </td>
                         <td>{{$project[$i]->duration_month}} </td>
                         <td>{{$project[$i]->interest}}%</td>
                         <td>{{$project[$i]->ltv}}%</td>
-                        <td>{{number_format($project[$i]->raised_to_date)}} EUR</td>
+                        <td style="text-align: right;">{{number_format($project[$i]->raised_to_date)}} </td>
                         <td>
                             <div class="progress-bar">
                                 <span class="progress-bar-fill" style="width: {{$project[$i]->funding_progress}}%;" data-width="{{$project[$i]->funding_progress}}"></span>
                             </div>
                         </td>
-                        <td>{{number_format($project[$i]->investors)}} </td>
-                        <td>{{number_format($project[$i]->average_ticket)}} EUR</td>
-                        <td>{{number_format($project[$i]->funding_pace)}} </td>
+                        <td style="text-align: right;">{{number_format($project[$i]->investors)}} </td>
+                        <td style="text-align: right;">{{number_format($project[$i]->average_ticket)}} </td>
+                        <td style="text-align: right;">{{number_format($project[$i]->funding_pace)}} </td>
                         @if($project[$i]->funding_status == 'funded')
                         @php  $color='#50cd89'@endphp
                         @elseif($project[$i]->funding_status == 'in process')

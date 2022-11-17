@@ -5,11 +5,13 @@
             <div class="col-md-5 col-sm-12 beforefieldstext">
                 <div style="max-width: 390px;">
                     <a href="index.php" class="custom-logo-link">
-                        <img src="{{ asset('theme/website-assets/images/Crowdbull-logo.svg')}}" class="custom-logo">
+                        <img src="{{ asset('theme/website-assets/images/Crowdbull-logo.svg')}}" alt="Crowdbull-logo" class="custom-logo">
                     </a>
                     <p class="mtpx-20 mbpx-20">
                         Crowdbulls is a real estate crowdfunding platforms tracker. In addition to tracking new projects, funding progress, interest rates, we track overall development of the platforms in scope.
                     </p>
+                    <p><a href="#" ><i class="fa fa-facebook-square mr-2" style="font-size: 30px;" aria-hidden="true"></i></a>
+                        <a href="#" ><i class="fa fa-twitter" style="font-size: 30px;" aria-hidden="true"></i></a></p>
                     <form action="" class="newsletter">
                         <div class="form-wrap newsletter">
                             <input type="email" name="email" placeholder="Email">
@@ -28,15 +30,17 @@
                         Platforms
                     </h4>
                     <ul class="contactDetails">
-                        {{-- @for($i=0; $i < count($data['platForm']); $i++)
-                        <a href="{{$data['platForm'][$i]->url}}" target="_blank">{{$data['platForm'][$i]->plat_form}}</a>
-                        @endfor --}}
-                        <li><a href="https://estateguru.co/" target="_blank">Estateguru.co</a></li>
+                        {{-- <li><a href="{{$data['platForm'][$i]->url}}" target="_blank">{{$data['platForm'][$i]->plat_form}}</a></li> --}}
+
+                        @for($i=0; $i < count($data['platForm']); $i++)
+                        <li><a href="{{route('crowdfunding-platforms',$data['platForm'][$i]->plat_form)}}" target="_blank">{{$data['platForm'][$i]->plat_form}}</a></li>
+                        @endfor
+                        {{-- <li><a href="https://estateguru.co/" target="_blank">Estateguru.co</a></li>
                         <li><a href="https://www.housers.com/en" target="_blank">Housers.com</a></li>
                         <li><a href="https://crowdestate.eu/" target="_blank">Crowdestate.eu</a></li>
                         <li><a href="https://rendity.com/en" target="_blank">Rendity.com</a></li>
                         <li><a href="https://www.profitus.com/" target="_blank">Profitus.com</a></li>
-                        <li><a href="https://nordstreet.com/" target="_blank">Nordstreet.com</a></li>
+                        <li><a href="https://nordstreet.com/" target="_blank">Nordstreet.com</a></li> --}}
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 matchheight hidden-sm-down" style="min-width:330px;">
@@ -80,5 +84,17 @@
 
 <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script>
 <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script>
-
+<!-- Google Tag Manager -->
+ <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W7WTKKV');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7WTKKV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </html>

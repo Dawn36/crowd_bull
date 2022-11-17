@@ -42,15 +42,7 @@ class PlatFormController extends Controller
     {
         $request->validate([
             'plat_form' => ['required'],
-            'capital_raised_to_date' => ['required'],
-            'avg_interest_rate' => ['required'],
-            'no_of_project_funded' => ['required'],
-            'no_of_project_not_funded' => ['required'],
-            'no_of_project_open' => ['required'],
-            'no_of_investors' => ['required'],
-            'avg_ticket_size' => ['required'],
-            'raised_in_past_30_days' => ['required'],
-            'raised_in_past_7_days' => ['required'],
+            
         ]);
         $userId=Auth::user()->id;
         $path='';
@@ -119,15 +111,6 @@ class PlatFormController extends Controller
 
         $request->validate([
             'plat_form' => ['required'],
-            'capital_raised_to_date' => ['required'],
-            'avg_interest_rate' => ['required'],
-            'no_of_project_funded' => ['required'],
-            'no_of_project_not_funded' => ['required'],
-            'no_of_project_open' => ['required'],
-            'no_of_investors' => ['required'],
-            'avg_ticket_size' => ['required'],
-            'raised_in_past_30_days' => ['required'],
-            'raised_in_past_7_days' => ['required'],
         ]);
         $adds = PlatForm::find($id);
         $adds['plat_form'] = $request->plat_form;
