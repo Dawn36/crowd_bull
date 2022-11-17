@@ -7,6 +7,7 @@
         height: 115px;
         width: 100%;
         object-fit: contain;
+        mix-blend-mode: multiply;
         /* border-radius: 50%; */
     }
 </style>
