@@ -85,7 +85,14 @@
 <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script>
 <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script>
 <!-- Google Tag Manager -->
- <script>
+<script type="text/javascript">
+    window.omnisend = window.omnisend || [];
+    omnisend.push(["accountID", "6372ac2900e4d27e263b555f"]);
+    omnisend.push(["track", "$pageViewed"]);
+    !function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://o
+   mnisnippet1.com/inshop/launcher-v2.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insert
+   Before(e,t)}();
+   
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

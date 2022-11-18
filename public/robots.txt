@@ -1,2 +1,6 @@
-User-agent: *
-Disallow:
+User-agent: * Disallow: /api/
+User-agent: Googlebot
+Disallow: /*/feed/
+Disallow: /search/*
+Disallow: /?s=*
+Sitemap: https://crowdbulls.com/sitemap_index.xml
