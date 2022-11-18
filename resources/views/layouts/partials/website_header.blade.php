@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-5 ">
                     <form action="" class="newsletter">
-                        <div class="form-wrap newsletter">
+                        <div class="form-wrap newsletter" id="omnisend-embedded-v2-6372ac85ccad48a8e412b185">
                             <input type="email" name="email" id="email" placeholder="Email">
                             <input type="submit" value="Subscribe">
                         </div>
@@ -92,4 +92,3 @@
             </div>
         </div>
     </header>
-    <div id="omnisend-embedded-v2-6372ac85ccad48a8e412b185"></div>

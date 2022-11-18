@@ -13,7 +13,7 @@
                     <p><a href="#" ><i class="fa fa-facebook-square mr-2" style="font-size: 30px;" aria-hidden="true"></i></a>
                         <a href="#" ><i class="fa fa-twitter" style="font-size: 30px;" aria-hidden="true"></i></a></p>
                     <form action="" class="newsletter">
-                        <div class="form-wrap newsletter">
+                        <div class="form-wrap newsletter" id="omnisend-embedded-v2-6372ac85ccad48a8e412b185">
                             <input type="email" name="email" placeholder="Email">
                             <input type="submit" value="Subscribe">
                         </div>
