@@ -3,4 +3,4 @@ User-agent: Googlebot
 Disallow: /*/feed/
 Disallow: /search/*
 Disallow: /?s=*
-Sitemap: https://crowdbulls.com/sitemap_index.xml
+Sitemap: https://crowdbulls.com/sitemap.xml

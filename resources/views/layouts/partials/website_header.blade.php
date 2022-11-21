@@ -12,6 +12,24 @@
     <link rel=“canonical” href=“https://crowdbulls.com/” />
 </head>
 
+<style>
+   form input[type=text], form input[type=number], form input[type=email], form input[type=date], form input[type=tel], form select, form textarea {
+    background-color: #ffffff;
+    width: 100%;
+    border: 1.5px solid #000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: 12px;
+    color: #0066f9;
+    margin-bottom: 0px;
+    max-height: 150px;
+}
+.soundest-form-embedded-v2-field {
+ background-color: #fff !important;
+ border-color: #0e0f0f !important;
+ color: rgb(14, 12, 12) !important;
+}
+     </style>
 <body class="Homepage " id='sidebar' >
 
     <!-- Mobile Navigation Start-->
@@ -64,12 +82,9 @@
                     </ul>
                 </div>
                 <div class="col-md-5 ">
-                    <form action="" class="newsletter">
                         <div class="form-wrap newsletter" id="omnisend-embedded-v2-6372ac85ccad48a8e412b185">
-                            <input type="email" name="email" id="email" placeholder="Email">
-                            <input type="submit" value="Subscribe">
+                           
                         </div>
-                    </form>
                 </div>
             </div>
             <div class="row align-center">
