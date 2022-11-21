@@ -41,7 +41,7 @@
     color: #04ff00 !important;
 }
 .soundest-form-embedded-v2-submit {
-    margin-left: -2rem !important;
+    margin-left: 0rem !important;
 }
 .soundest-form-embedded-v2-fields {
     flex: 3 !important;
