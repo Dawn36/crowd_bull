@@ -29,6 +29,25 @@
  border-color: #0e0f0f !important;
  color: rgb(14, 12, 12) !important;
 }
+.soundest-form-embedded-v2-submit {
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+.soundest-form-embedded-v2-error {
+    color: #ffe4e2 !important;
+}
+ .soundest-form-embedded-v2-success {
+    color: #04ff00 !important;
+}
+.soundest-form-embedded-v2-submit {
+    margin-left: -2rem !important;
+}
+.soundest-form-embedded-v2-fields {
+    flex: 3 !important;
+    margin: 4px !important;
+    flex-basis: 0 !important;
+}
      </style>
 <body class="Homepage " id='sidebar' >
 
@@ -81,11 +100,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-5 ">
-                        <div class="form-wrap newsletter" id="omnisend-embedded-v2-6372ac85ccad48a8e412b185">
-                           
-                        </div>
-                </div>
+               
             </div>
             <div class="row align-center">
                 <div class="col-md-4 col-xs-8">
