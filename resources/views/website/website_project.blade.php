@@ -9,6 +9,34 @@
   text-align: center;
   border-radius: 5px;
 }
+ul.pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    list-style: none;
+    justify-content: center; }
+    ul.pagination li {
+      width: 25px;
+      height: 32px;
+      background-color: transparent;
+      border-radius: 6px;
+      text-align: center; }
+      ul.pagination li a {
+        line-height: 32px; }
+      ul.pagination li:hover, ul.pagination li.active {
+        color: #ffffff;
+        background: #0066f9; }
+        ul.pagination li:hover a, ul.pagination li.active a {
+          color: #ffffff; }
+    @media (max-width: 1300px) {
+      ul.pagination {
+        gap: 2px; }
+        ul.pagination li {
+          width: 18px;
+          height: 27px;
+          font-size: 10px; }
+          ul.pagination li a {
+            line-height: 27px; } }
     </style>
 
 <section class="clearfix relative-block hero-banner inside-banner ">
@@ -71,7 +99,10 @@
                         <th>Funding status</th>
                         <th></th>
                     </tr>
-                    @for ($i = 0; $i < count($project); $i++) @php $a=$i; $a++; @endphp 
+                    @php 
+                        $a=$project->currentPage() == '1' ? '0' : $project->perPage()*($project->currentPage()-1);
+                       @endphp
+                    @for ($i = 0; $i < count($project); $i++) @php  $a++; @endphp
                     <tr>
                         <td>{{$a}}</td>
                         <td>{{ucwords($project[$i]->plat_form)}}</td>
@@ -103,6 +134,10 @@
                 </table>
                 
             </div>
+            <div class="col-md-12 mtpx-30">
+                {{ $project->links('website.website_paginating_ui') }}
+               
+              </div>
         </div>
     </div>
 </section>

@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PlatFormController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\TableController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,16 @@ use App\Http\Controllers\WebsiteController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('scrap_data', [DashboardController::class, 'scrapData'])->name('scrap_data');
 Route::middleware(['auth'])->group(function () {
+    Route::get('crowdestate', [TableController::class, 'crowdestate'])->name('crowdestate');
+    Route::get('estateguru', [TableController::class, 'estateguru'])->name('estateguru');
+    Route::get('housers', [TableController::class, 'housers'])->name('housers');
+    Route::get('nordstreet', [TableController::class, 'nordstreet'])->name('nordstreet');
+    Route::get('profitus', [TableController::class, 'profitus'])->name('profitus');
+    Route::get('rendity', [TableController::class, 'rendity'])->name('rendity');
+
+
 
 Route::resource('blogs', BlogController::class);
 

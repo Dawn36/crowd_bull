@@ -105,7 +105,12 @@
                                             <th># of Investors</th>
                                             <th>Average Ticket</th>
                                             <th>Funding Pace</th>
-                                            <th>Funding Status</th>
+                                            <th>Remaining to raise</th>
+                                            <th>Loan type</th>
+                                            <th>Command</th>
+                                            <th>DATE/TIME added</th>
+                                            <th>DATE/TIME closed</th>
+                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -132,6 +137,11 @@
                                             <td>{{$project[$i]->investors}} </td>
                                             <td>{{$project[$i]->average_ticket}} </td>
                                             <td>{{$project[$i]->funding_pace}} </td>
+                                            <td>{{$project[$i]->remaining_to_rise}} </td>
+                                            <td>{{$project[$i]->loan_type}} </td>
+                                            <td>{{$project[$i]->comment}} </td>
+                                            <td>{{date("Y-m-d",strtotime($project[$i]->created_at))}} </td>
+                                            <td>{{date("Y-m-d",strtotime($project[$i]->updated_at))}} </td>
                                             <td>
                                                 @if($project[$i]->funding_status == 'funded')
                                                 @php  $color='success'@endphp

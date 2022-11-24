@@ -68,7 +68,12 @@
                                     <!--begin::Page Title-->
                                     <h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">
                                         {{ Route::currentRouteName() == 'settings.create' ? 'Setting' : '' }}  
-                                        {{ Route::currentRouteName() == 'dashboard'  ? 'Dashboard' : '' }}
+                                        {{ Route::currentRouteName() == 'crowdestate'  ? 'Crowdestate' : '' }}
+                                        {{ Route::currentRouteName() == 'estateguru'  ? 'Estateguru' : '' }}
+                                        {{ Route::currentRouteName() == 'housers'  ? 'Housers' : '' }}
+                                        {{ Route::currentRouteName() == 'nordstreet'  ? 'Nordstreet' : '' }}
+                                        {{ Route::currentRouteName() == 'profitus'  ? 'Profitus' : '' }}
+                                        {{ Route::currentRouteName() == 'rendity'  ? 'Rendity' : '' }}
                                         {{ Route::currentRouteName() == 'blogs.show' || Route::currentRouteName() == 'blogs.index'  ? 'Blogs' : '' }}
                                         {{ Route::currentRouteName() == 'projects.show' || Route::currentRouteName() == 'projects.index'  ? 'Projects' : '' }}
                                         {{ Route::currentRouteName() == 'plat_form.show' || Route::currentRouteName() == 'plat_form.index'  ? 'Plat Form' : '' }}

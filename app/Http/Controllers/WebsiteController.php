@@ -55,23 +55,29 @@ class WebsiteController extends Controller
     {
         if($request->current_open == 'fastest_funding_pace')
         {
-            $project=Project::orderby('funding_pace','ASC')->get();
+            $project=Project::orderby('funding_pace','ASC')->paginate(30);
+            $project->appends(['current_open'=>'fastest_funding_pace']);
+
         }
         elseif($request->current_open == 'added')
         {
-            $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->get();
+            $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->paginate(30);
+            $project->appends(['current_open'=>'added']);
+
         }
         elseif($request->current_open == 'large')
         {
-            $project=Project::orderby('average_ticket','desc')->get();
+            $project=Project::orderby('average_ticket','desc')->paginate(30);
+            $project->appends(['current_open'=>'large']);
         }
         elseif($request->current_open == 'current_open')
         {
-            $project=Project::orderby('id','desc')->where('funding_status','in process')->get();
+            $project=Project::orderby('id','desc')->where('funding_status','in process')->paginate(30);
+            $project->appends(['current_open'=>'current_open']);
         }
         else
         {
-            $project=Project::orderby('id','desc')->get();
+            $project=Project::orderby('id','desc')->paginate(30);
         }
         return view('website/website_project',compact('project'));
     }
