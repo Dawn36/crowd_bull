@@ -326,7 +326,9 @@ class DashboardController extends Controller
         if($goal != '' && $raisedToDate != '')
         {
             try {
-                $goal=str_replace( array( '\'', '"',',' , ';', '<', '>','∞' ), "", $goal);
+                $goal=str_replace( array( '\'', '"',',' , ';', '<', '>','∞','Tikslas:' ), "", $goal);
+                $goal=trim($goal);
+                
                 $remainingToRaise=$goal-$raisedToDate;
                 //code...
             } catch (\Throwable $th) {
@@ -343,7 +345,7 @@ class DashboardController extends Controller
                     //code...
                 } catch (\Throwable $th) {
                     //throw $th;
-                    $avgTicket=$raisedToDate/1;
+                    $avgTicket=0;
                 }
                  
             }
@@ -365,7 +367,13 @@ class DashboardController extends Controller
             $status="in process";
             if($raisedToDate != '')
             {
+                try {
                 $fundingPlace=$raisedToDate/$days;
+                //code...
+            } catch (\Throwable $th) {
+                //throw $th;
+                $fundingPlace='';
+            }
             }
             else
             {
@@ -377,7 +385,14 @@ class DashboardController extends Controller
             $status="funded";
             if($raisedToDate != '')
             {
+                
+                try {
                 $fundingPlace=$raisedToDate/$days;
+                //code...
+            } catch (\Throwable $th) {
+                //throw $th;
+                $fundingPlace='';
+            }
             }
             else
             {
@@ -414,7 +429,15 @@ class DashboardController extends Controller
             $daysForClose=$daysForClose == 0 ? 1 : $daysForClose;
             $status="funded";
             $date=$housersProject->created_at;
-            $fundingPlace=$goal/$daysForClose;
+            try {
+                $fundingPlace=$goal/$daysForClose;
+                //code...
+            } catch (\Throwable $th) {
+                //throw $th;
+                
+                $fundingPlace='';
+            }
+            
         }
         elseif($fundingProgress < '100')
         {
