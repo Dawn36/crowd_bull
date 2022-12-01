@@ -150,6 +150,10 @@
                                                 @elseif($project[$i]->funding_status == 'not funded')
                                                 @php  $color='warning'@endphp
                                                 @endif
+                                                @elseif($project[$i]->funding_status == 'unknown')
+                                                @php  $color='warning'@endphp
+                                                @endif
+                                                
                                                 <div class="badge badge-light-{{$color}} text-{{$color}}">{{ucwords($project[$i]->funding_status)}} </div>
                                                 
                                             </td>

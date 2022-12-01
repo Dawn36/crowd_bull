@@ -127,6 +127,10 @@ ul.pagination {
                         @elseif($project[$i]->funding_status == 'not funded')
                         @php  $color='#ffc700'@endphp
                         @endif
+                        @elseif($project[$i]->funding_status == 'unknown')
+                        @php  $color='#ffc700'@endphp
+                        @endif
+                        
                         <td style="    width: 109px;"><span class="badge" style=" background-color: {{$color}};">{{ucwords($project[$i]->funding_status)}}</span></td>
                         <td><a href="{{$project[$i]->url}}" target="_bank" class="btn btn-primary --small">Invest</a></td>
                     </tr>

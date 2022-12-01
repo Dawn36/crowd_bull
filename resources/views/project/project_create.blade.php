@@ -57,6 +57,7 @@
                 <option value="in process">In Process</option>
                 <option value="funded">Funded</option>
                 <option value="not funded">Not Funded</option>
+                <option value="unknown">Unknown</option>
             </select>
         </div>
     </div>

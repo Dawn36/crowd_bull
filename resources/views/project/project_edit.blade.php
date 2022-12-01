@@ -60,6 +60,7 @@
                 <option value="in process"  {{$project->funding_status== 'in process' ? 'Selected' : ''}}>In Process</option>
                 <option value="funded" {{$project->funding_status== 'funded' ? 'Selected' : ''}}>Funded</option>
                 <option value="not funded" {{$project->funding_status== 'not funded' ? 'Selected' : ''}}>Not Funded</option>
+                <option value="unknown" {{$project->funding_status== 'unknown' ? 'Selected' : ''}}>Unknown</option>
             </select>
         </div>
     </div>
