@@ -126,7 +126,6 @@ ul.pagination {
                         @php  $color='#ffc700'@endphp
                         @elseif($project[$i]->funding_status == 'not funded')
                         @php  $color='#ffc700'@endphp
-                        @endif
                         @elseif($project[$i]->funding_status == 'unknown')
                         @php  $color='#ffc700'@endphp
                         @endif
