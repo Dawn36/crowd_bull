@@ -22,6 +22,19 @@
 <script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js')}}"></script>
 
 </head>
+<style>
+    @media (min-width:1400px) {
+
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl,
+        .container-xxl {
+            max-width: 1900px
+        }
+    }
+</style>
 <!--end::Head-->
 <!--begin::Body-->
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">

@@ -117,8 +117,18 @@ ul.pagination {
                                 <span class="progress-bar-fill" style="width: {{$project[$i]->funding_progress}}%;" data-width="{{$project[$i]->funding_progress}}"></span>
                             </div>
                         </td>
-                        <td style="text-align: right;">{{number_format($project[$i]->investors)}} </td>
-                        <td style="text-align: right;">{{number_format($project[$i]->average_ticket)}} </td>
+                        
+                        @if($project[$i]->plat_form == 'rendity.com' && $project[$i]->investors == 0)
+                        <td style="text-align: right;">N/A</td>
+                        @else
+                         <td style="text-align: right;">{{number_format($project[$i]->investors)}} </td>
+                        @endif
+                        
+                        @if($project[$i]->plat_form == 'rendity.com' && $project[$i]->average_ticket == 0)
+                        <td style="text-align: right;">N/A</td>
+                        @else
+                         <td style="text-align: right;">{{number_format($project[$i]->average_ticket)}} </td>
+                        @endif
                         <td style="text-align: right;">{{number_format($project[$i]->funding_pace)}} </td>
                         @if($project[$i]->funding_status == 'funded')
                         @php  $color='#50cd89'@endphp
