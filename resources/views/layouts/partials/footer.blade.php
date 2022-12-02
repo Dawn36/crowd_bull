@@ -44,7 +44,9 @@
     // $("#kt_datatable_example_1").DataTable();
     $(document).ready(function() {
         // Datatables
-        var table = $('.kt_datatable_example_1').DataTable();
+        var table = $('.kt_datatable_example_1').DataTable({
+            "scrollY": "500px",
+        });
         $('#search').on('keyup', function() {
             table.search(this.value).draw();
         });

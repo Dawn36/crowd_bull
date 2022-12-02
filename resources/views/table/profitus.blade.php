@@ -87,7 +87,6 @@
                                             <th>Loan_Type</th>
                                             <th>Comment</th>
                                             <th>Date_Time_Rounded</th>
-                                            <th>fetch_data</th>
                                         </tr>
                                     </thead>
                                     <tbody class="fw-bold text-gray-600">
@@ -106,8 +105,7 @@
                                            <td>{{$project[$i]->Remaining_To_Raise}}</td> 
                                            <td>{{$project[$i]->Loan_Type}}</td> 
                                            <td>{{$project[$i]->Comment}}</td> 
-                                           <td>{{Date('Y-m-d',strtotime($project[$i]->Date_Time_Rounded))}}</td> 
-                                           <td>{{$project[$i]->fetch_data}}</td> 
+                                           <td>{{Date('Y-m-d h:i:s',strtotime($project[$i]->Date_Time_Rounded))}}</td> 
                                         </tr>
                                         @endfor
                                     </tbody>
