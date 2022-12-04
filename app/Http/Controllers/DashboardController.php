@@ -731,7 +731,7 @@ class DashboardController extends Controller
            
                 continue;
         }
-        $goal=$raisedToDate/$fundingProgress;
+        $goal=$raisedToDate/($fundingProgress/100);
        
         $remainingToRaise=$goal-$raisedToDate;
         try {

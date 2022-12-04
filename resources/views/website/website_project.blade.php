@@ -110,7 +110,11 @@ ul.pagination {
                         <td style="text-align: right;">{{number_format($project[$i]->goal)}} </td>
                         <td>{{$project[$i]->duration_month}} </td>
                         <td>{{$project[$i]->interest}}%</td>
+                        @if($project[$i]->plat_form == 'rendity.com' && $project[$i]->ltv == '')
+                        <td >N/A</td>
+                        @else
                         <td>{{$project[$i]->ltv}}%</td>
+                        @endif
                         <td style="text-align: right;">{{number_format($project[$i]->raised_to_date)}} </td>
                         <td>
                             <div class="progress-bar">
