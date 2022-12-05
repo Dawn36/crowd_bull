@@ -73,7 +73,7 @@
                             <div class="py-5">
                                 <table class="kt_datatable_example_1 table table-row-bordered gy-5">
                                     <thead>
-                                        <tr class="fw-bold fs-6 text-muted">
+                                        <tr class="fw-bolder fs-6 text-dark">
                                             <th class="min-w-30px">ID</th>
                                             <th>Project_Name</th>
                                             <th>Goal</th>
