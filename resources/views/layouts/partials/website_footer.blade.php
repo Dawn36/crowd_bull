@@ -82,8 +82,63 @@
 
 <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script>
 <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script>
-<!-- Google Tag Manager -->
+<script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js')}}"></script>
+
+<script src="{{ asset('theme/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+
+
 <script type="text/javascript">
+ $(document).ready(function() {
+        // Datatables
+        var table = $('.kt_datatable_example_1').DataTable({
+            fixedHeader: true,
+            paging: false,
+        columnDefs: [
+            { orderable: true, className: 'reorder', targets: 3 },
+            { orderable: true, className: 'reorder', targets: 4 },
+            { orderable: true, className: 'reorder', targets: 5 },
+            { orderable: true, className: 'reorder', targets: 6 },
+            { orderable: true, className: 'reorder', targets: 7 },
+            { orderable: true, className: 'reorder', targets: 8 },
+            { orderable: true, className: 'reorder', targets: 9 },
+            { orderable: true, className: 'reorder', targets: 10 },
+            { orderable: true, className: 'reorder', targets: 11 },
+            { orderable: false, targets: '_all' }
+        ]
+        });
+        var table = $('#project').DataTable({
+            fixedHeader: true,
+            paging: false,
+        columnDefs: [
+            { orderable: true, className: 'reorder', targets: 3 },
+            { orderable: true, className: 'reorder', targets: 4 },
+            { orderable: true, className: 'reorder', targets: 5 },
+            { orderable: true, className: 'reorder', targets: 6 },
+            { orderable: true, className: 'reorder', targets: 7 },
+            { orderable: true, className: 'reorder', targets: 8 },
+            { orderable: true, className: 'reorder', targets: 9 },
+            { orderable: true, className: 'reorder', targets: 10 },
+            { orderable: true, className: 'reorder', targets: 11 },
+            { orderable: false, targets: '_all' }
+        ]
+        });
+        var table = $('.platfrom').DataTable({
+            fixedHeader: true,
+            paging: false,
+        columnDefs: [
+            { orderable: true, className: 'reorder', targets: 2 },
+            { orderable: true, className: 'reorder', targets: 3 },
+            { orderable: true, className: 'reorder', targets: 4 },
+            { orderable: true, className: 'reorder', targets: 5 },
+            { orderable: true, className: 'reorder', targets: 6 },
+            { orderable: true, className: 'reorder', targets: 7 },
+            { orderable: true, className: 'reorder', targets: 8 },
+            { orderable: true, className: 'reorder', targets: 9 },
+            { orderable: false, targets: '_all' }
+        ]
+        });
+       
+    });
     window.omnisend = window.omnisend || [];
     omnisend.push(["accountID", "6372ac2900e4d27e263b555f"]);
     omnisend.push(["track", "$pageViewed"]);

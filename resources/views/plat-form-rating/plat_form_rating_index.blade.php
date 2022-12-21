@@ -13,14 +13,6 @@
             max-width: 1620px
         }
     }
-    
-    .dataTables_info{
-        display: none;
-    }
-    
-    .dataTables_empty{
-        display: none;
-    }
 </style>
 
 <!--begin::Content-->
@@ -29,6 +21,7 @@
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container-xxl">
+
             <!--begin::Row-->
             <div class="row gy-5 g-xl-10">
                 <div class="col-xl-12 mb-5 mb-xl-10">
@@ -37,33 +30,33 @@
                         <div class="p-10">
                             <!--begin::Heading-->
                             <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
-                                <a href="javascript:;"></a>Benutzerliste
+                                <a href="javascript:;"></a>Platforms Ratings
                             </h1>
+
                             <!--begin::Notice-->
-                            <div class="d-flex align-items-center rounded py-5 px-4 bg-light-dark">
+                            <div class="d-flex align-items-center rounded py-5 px-4 bg-light-primary">
                                 <!--begin::Icon-->
                                 <div class="d-flex h-80px w-80px flex-shrink-0 flex-center position-relative ms-3 me-6">
                                     <!--begin::Svg Icon | path: icons/duotune/abstract/abs051.svg-->
-                                    <span class="svg-icon svg-icon-info position-absolute opacity-10">
+                                    <span class="svg-icon svg-icon-primary position-absolute opacity-10">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="70px" height="70px" viewBox="0 0 70 70" fill="none" class="w-80px h-80px">
                                             <path d="M28 4.04145C32.3316 1.54059 37.6684 1.54059 42 4.04145L58.3109 13.4585C62.6425 15.9594 65.3109 20.5812 65.3109 25.5829V44.4171C65.3109 49.4188 62.6425 54.0406 58.3109 56.5415L42 65.9585C37.6684 68.4594 32.3316 68.4594 28 65.9585L11.6891 56.5415C7.3575 54.0406 4.68911 49.4188 4.68911 44.4171V25.5829C4.68911 20.5812 7.3575 15.9594 11.6891 13.4585L28 4.04145Z" fill="#000000" />
                                         </svg>
                                     </span>
                                     <!--end::Svg Icon-->
                                     <!--begin::Svg Icon | path: icons/duotune/art/art006.svg-->
-                                    <span class="svg-icon svg-icon-3x svg-icon-info position-absolute">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="black" />
-                                            <rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="black" />
-                                            <path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="black" />
-                                            <rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="black" />
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->
+                                    <span class="svg-icon svg-icon-3x svg-icon-primary position-absolute">
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path opacity="0.3" d="M7.16973 20.95C6.26973 21.55 5.16972 20.75 5.46972 19.75L7.36973 14.05L2.46972 10.55C1.56972 9.95005 2.06973 8.55005 3.06973 8.55005H20.8697C21.9697 8.55005 22.3697 9.95005 21.4697 10.55L7.16973 20.95Z" fill="black" />
+                                                <path d="M11.0697 2.75L7.46973 13.95L16.9697 20.85C17.8697 21.45 18.9697 20.65 18.6697 19.65L13.1697 2.75C12.7697 1.75 11.3697 1.75 11.0697 2.75Z" fill="black" />
+                                            </svg>
+                                        </span>
+                                        <!--end::Svg Icon-->
                                 </div>
                                 <!--end::Icon-->
                                 <!--begin::Description-->
-                                <div class="text-gray-700 fw-bold fs-6 lh-lg">Hier haben wir eine Liste aller Benutzer, die wir haben.</div>
+                                <div class="text-gray-700 fw-bold fs-6 lh-lg">Here we have a list of all of the Platforms Ratings that we have.</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Notice-->
@@ -83,7 +76,7 @@
                                         </svg>
                                     </span>
                                     <!--end::Svg Icon-->
-                                    <input type="text" id="search" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Suche" />
+                                    <input type="text" id="search" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search" />
                                 </div>
                                 <!--end::Search-->
                             </div>
@@ -92,8 +85,8 @@
                             <div class="card-toolbar">
                                 <!--begin::Toolbar-->
                                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                                    <!--begin::Add User-->
-                                    <button type="button" class="btn btn-primary" onclick="addUser()">
+                                    <!--begin::Platforms-->
+                                    <button type="button" class="btn btn-primary me-2" onclick="addPlatformRating()">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                         <span class="svg-icon svg-icon-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -101,9 +94,9 @@
                                                 <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->Nutzer hinzufügen
+                                        <!--end::Svg Icon-->Add Platforms Ratings
                                     </button>
-                                    <!--end::Add User-->
+                                    <!--end::Platforms-->
                                 </div>
                                 <!--end::Toolbar-->
                             </div>
@@ -117,36 +110,25 @@
                             <div class="py-5">
                                 <table class="kt_datatable_example_1 table table-row-bordered gy-5">
                                     <thead>
-                                        <tr class="fw-bolder fs-6 text-dark">
+                                        <tr class="fw-bold fs-6 text-muted">
                                             <th class="min-w-30px">ID</th>
-                                            <th>Vorname</th>
-                                            <th>Nachname</th>
-                                            <th>E-Mail-Addresse</th>
-                                            <th>Rolle</th>
-                                            <th>Straße</th>
-                                            <th>Stadt</th>
-                                            <th>Land</th>
-                                            <th>Telefonnummer</th>
-                                            <th>Erstellungsdatum</th>
-                                            <th>Bearbeiten</th>
+                                            <th>Platform</th>
+                                            <th>Stars/ Score</th>
+                                            <th>Description</th>
+                                            <th>Minimum ticket</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody class="fw-bold text-gray-600">
-                                        @for ($i = 0; $i < count($users); $i++) @php $a=$i; $a++; @endphp <tr>
+                                        @for($i=0; $i < count($platformRating); $i++) @php $a=$i; $a++; @endphp
+                                        <tr>
                                             <td>{{$a}}</td>
-                                            <td>{{ucwords($users[$i]->first_name)}}</td>
-                                            <td>{{ucwords($users[$i]->last_name)}}</td>
-                                            <td>{{$users[$i]->email}}</td>
+                                            <td>{{ucwords($platformRating[$i]->platform_name)}}</td>
+                                            <td>{{$platformRating[$i]->score}}</td>
+                                            <td>{{substr(strip_tags($platformRating[$i]->description), 0, 19)}} ...</td>
+                                            <td>{{$platformRating[$i]->minimum_ticket}}</td>
                                             <td>
-                                                <div class="badge badge-light-info text-info">Admin</div>
-                                            </td>
-                                            <td>{{ucwords($users[$i]->street)}}</td>
-                                            <td>{{ucwords($users[$i]->city)}}</td>
-                                            <td>{{ucwords($users[$i]->country)}}</td>
-                                            <td>{{$users[$i]->contact_no}}</td>
-                                            <td>{{Date('Y-m-d',strtotime($users[$i]->created_at))}}</td>
-                                            <td>
-                                                <a class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary me-2" data-bs-original-title="Benutzer bearbeiten" onclick="editUser('{{ $users[$i]->id}}')">
+                                                <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary me-2" onclick="editPlatformRating('{{$platformRating[$i]->id}}')" data-bs-original-title="Edit">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                     <span class="svg-icon svg-icon-2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -155,26 +137,25 @@
                                                         </svg>
                                                     </span>
                                                     <!--end::Svg Icon-->
-                                                </a>
-                                                <form onclick="return confirm('Sind sie sich sicher?')" style="display: inline-block" method="POST" action="{{ route('user.destroy', $users[$i]->id) }}">
+                                                </button>
+                                                <form onclick="return confirm('Are you sure?')" style="display: inline-block" method="POST" action="{{ route('platform_rating.destroy', $platformRating[$i]->id) }}">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger me-2" data-bs-toggle="tooltip" data-bs-original-title="Benutzer löschen">
-                                                        <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                                                        <span class="svg-icon svg-icon-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black"></path>
-                                                                <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black"></path>
-                                                                <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->
-                                                    </button>
+                                                    <button type="submit"  class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger me-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                    <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black"></path>
+                                                            <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black"></path>
+                                                            <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <!--end::Svg Icon-->
+                                                </button>
                                                 </form>
                                             </td>
-                                            </tr>
-                                            @endfor
-
+                                        </tr>
+                                        @endfor
                                     </tbody>
                                 </table>
                             </div>
@@ -190,42 +171,34 @@
     </div>
     <!--end::Post-->
 </div>
+<!--end::Content-->
 <script>
-    $(document).ready(function() {
-        var table = $('.kt_datatable_example_1').DataTable();
-        $('#search').on('keyup', function() {
-            table.search(this.value).draw();
-        });
-
-    });
-
-    function addUser() {
-
+    function addPlatformRating()
+    {
         $.ajax({
             type: 'GET',
-            url: "{{ route('user.create') }}",
+            url: "{{ route('platform_rating.create') }}",
             success: function(result) {
                 console.log('aa', result);
-                $('#myModalLgHeading').html('Add User');
+                $('#myModalLgHeading').html('Add platform rating');
                 $('#modalBodyLarge').html(result);
                 $('#myModalLg').modal('show');
             }
         });
     }
-
-    function editUser(id) {
-        url = "{{ route('user.edit', ':id') }}";
+    function editPlatformRating(id)
+    {
+        url = "{{ route('platform_rating.edit', ':id') }}";
         url = url.replace(':id', id);
         $.ajax({
             type: 'GET',
             url: url,
             success: function(result) {
-                $('#myModalLgHeading').html('Edit User');
+                $('#myModalLgHeading').html('Edit platform rating');
                 $('#modalBodyLarge').html(result);
                 $('#myModalLg').modal('show');
             }
         });
     }
 </script>
-
 @endsection('content')

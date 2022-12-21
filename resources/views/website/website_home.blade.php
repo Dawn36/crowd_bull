@@ -68,39 +68,64 @@
                 </ul> --}}
             </div>
             <div class="col-md-12 table-row">
-                <table>
+                <table class="platfrom" style="width:  100% !important">
+                <thead>
                     <tr>
                         <th>#</th>
                         <th>Platform</th>
                         <th>Capital raised to date, EUR</th>
                         <th>Avg interest rate</th>
                         <th># of projects funded</th>
-                        <th># of projects not funded</th>
+                        {{-- <th># of projects not funded</th> --}}
                         <th># of open projects</th>
                         <th># of Investors</th>
                         <th>Avg. ticket size, EUR</th>
                         <th>Raised in the past 30 days, EUR</th>
                         <th style="width: 116px;">Raised This Week, EUR</th>
-                        <th> </th>
+                        <th hidden> </th>
                     </tr>
+                </thead>
+                <tbody>
                     @for ($i = 0; $i < count($platForm); $i++) @php $a=$i; $a++; @endphp 
-
                     <tr>
                         <td>{{$a}}</td>
                         <td>{{ucwords($platForm[$i]->plat_form)}}</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->capital_raised_to_date)}} </td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->avg_interest_rate)}}%</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_funded)}}</td>
-                        <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_not_funded)}}</td>
+                        {{-- <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_not_funded)}}</td> --}}
                         <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_open)}}</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->no_of_investors)}}</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->avg_ticket_size)}} </td>
-                        <td style="text-align: right;">{{number_format($platForm[$i]->raised_in_past_30_days)}} </td>
+                        <td style="text-align: right;">
+                            <div>{{number_format($platForm[$i]->raised_in_past_30_days)}}</div>
+                            @if($platForm[$i]->status == 'increase')
+                            <span class="badge1 badge--success fc-success fs-1 lh-1 py-1 px-2 flex-center fw-black" style="height: 22px; background-color:transparent;">
+                                <span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.5" d="M13 9.59998V21C13 21.6 12.6 22 12 22C11.4 22 11 21.6 11 21V9.59998H13Z" fill="black" style="fill: #2ecc71;"></path>
+                                        <path d="M5.7071 7.89291C5.07714 8.52288 5.52331 9.60002 6.41421 9.60002H17.5858C18.4767 9.60002 18.9229 8.52288 18.2929 7.89291L12.7 2.3C12.3 1.9 11.7 1.9 11.3 2.3L5.7071 7.89291Z" fill="black" style="fill: #2ecc71;"></path>
+                                    </svg>
+                                </span>
+                                {{$platForm[$i]->percentage}}%
+                            </span>
+                            @elseif($platForm[$i]->status == 'decrease')
+                            <span class="badge1 badge--danger fc-danger fs-1 lh-1 py-1 px-2 flex-center fw-black" style="height: 22px; background-color:transparent;">
+                                <span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.5" d="M13 14.4V3.00003C13 2.40003 12.6 2.00003 12 2.00003C11.4 2.00003 11 2.40003 11 3.00003V14.4H13Z" fill="black" style="fill: #e74c3c;"></path>
+                                        <path d="M5.7071 16.1071C5.07714 15.4771 5.52331 14.4 6.41421 14.4H17.5858C18.4767 14.4 18.9229 15.4771 18.2929 16.1071L12.7 21.7C12.3 22.1 11.7 22.1 11.3 21.7L5.7071 16.1071Z" fill="black" style="fill: #e74c3c;"></path>
+                                    </svg>
+                                </span>
+                                {{$platForm[$i]->percentage}}%
+                            </span>
+                            @endif
+                        </td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->raised_in_past_7_days)}} </td>
                         <td><a href="{{$platForm[$i]->url}}" target="_bank" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor
-
+                </tbody>
                 </table>
             </div>
             <div class="col-md-12 ta-center mtpx-30">
@@ -120,35 +145,98 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-
                 <ul class="tableTabs">
-                    <form id="all" method="GET" action="{{ route('crowdfunding-projects') }}">
-                        <input name="current_open" value="" hidden/>
-                    <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('all').submit();myFunction()">All</li>
-                </form>
-                    <form id="current_open" method="GET" action="{{ route('index') }}">
-                        <input name="current_open" value="current_open" hidden/>
-                    <li class="{{request()->current_open == 'current_open' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit();myFunction()">Currently Open</li>
-                </form>
-                <form id="fastest_funding_pace" method="GET" action="{{ route('index') }}">
-                    <input name="current_open" value="fastest_funding_pace" hidden/>
-                    <li class="{{request()->current_open == 'fastest_funding_pace' ? "active" : ''}}" onclick=" document.getElementById('fastest_funding_pace').submit();myFunction()">Fastest funding pace</li>
-                </form>
-                <form id="added" method="GET" action="{{ route('index') }}">
-                    <input name="current_open" value="added" hidden/>
-                    <li class="{{request()->current_open == 'added' ? "active" : ''}}" onclick=" document.getElementById('added').submit();myFunction()">Added this week</li>
-                </form>
-                <form id="large" method="GET" action="{{ route('index') }}">
-                    <input name="current_open" value="large" hidden/>
-                    <li class="{{request()->current_open == 'large' ? "active" : ''}}" onclick=" document.getElementById('large').submit();myFunction()">Largest Tickets</li>
-                </form>
-
+                    <div class="row">
+                        <div class="col">
+                            <form id="all" method="GET" action="{{ route('crowdfunding-projects') }}">
+                                    <input name="current_open" value="" hidden/>
+                                <li class="{{request()->current_open == '' ? "active" : ''}}" onclick=" document.getElementById('all').submit();myFunction()">All</li>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <form id="added" method="GET" action="{{ route('index') }}">
+                                <input name="current_open" value="added" hidden/>
+                                <li class="{{request()->current_open == 'added' ? "active" : ''}}" onclick=" document.getElementById('added').submit();myFunction()">Added this week</li>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <form id="current_open" method="GET" action="{{ route('index') }}">
+                                    <input name="current_open" value="current_open" hidden/>
+                                <li class="{{request()->current_open == 'current_open' ? "active" : ''}}" onclick=" document.getElementById('current_open').submit();myFunction()">Currently Open</li>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <form id="funded" method="GET" action="{{ route('index') }}">
+                                <input name="current_open" value="funded" hidden/>
+                                <li class="{{request()->current_open == 'funded' ? "active" : ''}}" onclick=" document.getElementById('funded').submit();myFunction()">Funded</li>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <form id="not_funded" method="GET" action="{{ route('index') }}">
+                                <input name="current_open" value="not_funded" hidden/>
+                                <li class="{{request()->current_open == 'not_funded' ? "active" : ''}}" onclick=" document.getElementById('not_funded').submit();myFunction()">Not funded</li>
+                            </form>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <form id="fastest_funding_pace" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="fastest_funding_pace" hidden/>
+                            <li class="{{request()->current_open == 'fastest_funding_pace' ? "active" : ''}}" onclick=" document.getElementById('fastest_funding_pace').submit();myFunction()">Fastest funding pace</li>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form id="large" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="large" hidden/>
+                            <li class="{{request()->current_open == 'large' ? "active" : ''}}" onclick=" document.getElementById('large').submit();myFunction()">Largest Tickets</li>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <form id="estateguru" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="estateguru" hidden />
+                            <li class="{{request()->current_open == 'estateguru' ? "active" : ''}}" onclick=" document.getElementById('estateguru').submit();myFunction()">Estateguru</li>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form id="rendity" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="rendity" hidden />
+                            <li class="{{request()->current_open == 'rendity' ? "active" : ''}}" onclick=" document.getElementById('rendity').submit();myFunction()">Rendity</li>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form id="profitus" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="profitus" hidden />
+                            <li class="{{request()->current_open == 'profitus' ? "active" : ''}}" onclick=" document.getElementById('profitus').submit();myFunction()">Profitus</li>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form id="housers" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="housers" hidden />
+                            <li class="{{request()->current_open == 'housers' ? "active" : ''}}" onclick=" document.getElementById('housers').submit();myFunction()">Housers</li>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form id="nordstreet" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="nordstreet" hidden />
+                            <li class="{{request()->current_open == 'nordstreet' ? "active" : ''}}" onclick=" document.getElementById('nordstreet').submit();myFunction()">Nordstreet</li>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form id="crowdestate" method="GET" action="{{ route('index') }}">
+                            <input name="current_open" value="crowdestate" hidden />
+                            <li class="{{request()->current_open == 'crowdestate' ? "active" : ''}}" onclick=" document.getElementById('crowdestate').submit();myFunction()">Crowdestate</li>
+                        </form>
+                    </div>
+                </div>
                 </ul>
             </div>
             <div class="col-md-12 table-row">
-                <table>
+                <table id="myTable" class="kt_datatable_example_1">
+                    <thead>
                     <tr>
-                        <th>#</th>
+                        <th >#</th>
                         <th>Platform</th>
                         <th>Project Name</th>
                         <th style="width: 116px;">Goal, EUR</th>
@@ -159,10 +247,13 @@
                         <th>Funding progress</th>
                         <th># of Investors </th>
                         <th>Average Ticket, EUR </th>
-                        <th>Funding Pace </th>
+                        <th>Raised Capital/hour</th>
+                        <th>Date Added</th>
                         <th>Funding status</th>
-                        <th></th>
+                        <th hidden></th>
                     </tr>
+                </thead>
+                <tbody >
                     @for ($i = 0; $i < count($project); $i++) @php $a=$i; $a++; @endphp 
                     <tr>
                         <td>{{$a}}</td>
@@ -182,6 +273,7 @@
                             <div class="progress-bar">
                                 <span class="progress-bar-fill" style="width: {{$project[$i]->funding_progress}}%;" data-width="{{$project[$i]->funding_progress}}"></span>
                             </div>
+                            <p hidden>{{$project[$i]->funding_progress}}</p>
                         </td>
                         
                         @if($project[$i]->plat_form == 'rendity.com' && $project[$i]->investors == 0)
@@ -201,14 +293,16 @@
                         @elseif($project[$i]->funding_status == 'in process')
                         @php  $color='#ffc700'@endphp
                         @elseif($project[$i]->funding_status == 'not funded')
-                        @php  $color='#ffc700'@endphp
+                        @php  $color='#f33e3e'@endphp
                         @elseif($project[$i]->funding_status == 'unknown')
-                        @php  $color='#ffc700'@endphp
+                        @php  $color='#808080'@endphp
                         @endif
                         <td style="    width: 109px;"><span class="badge" style=" background-color: {{$color}};">{{ucwords($project[$i]->funding_status)}}</span></td>
+                        <td>{{date("Y-m-d",strtotime($project[$i]->created_at))}} </td>
                         <td><a href="{{$project[$i]->url}}" target="_bank" class="btn btn-primary --small">Invest</a></td>
                     </tr>
                     @endfor
+                </tbody>
                 </table>
             </div>
             <div class="col-md-12 ta-center mtpx-30">
@@ -287,6 +381,7 @@
     </div>
 </section>
 <script>
+
  topaaaa = localStorage.getItem("sidebar-scroll");
 if (topaaaa !== null) {
   window.scrollTo(0, topaaaa);

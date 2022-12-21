@@ -31,11 +31,11 @@ class DashboardController extends Controller
     }
     public function scrapData()
     {
-         //$this->estateGuru();
-        //  $this->crowdEstate();
-        //  $this->HousersNew();
-        //  $this->NordstreetNew();
-        // $this->ProfitusNew();
+         $this->estateGuru();
+         $this->crowdEstate();
+         $this->HousersNew();
+         $this->NordstreetNew();
+         $this->ProfitusNew();
          $this->RendityNew();
        
         
@@ -45,6 +45,7 @@ class DashboardController extends Controller
         $estateguru=DB::table('EstateguruNew')->where('Project_Name','!=','')->where('fetch_data','no')->orderby('id','ASC')->limit('10000')->get();
         for ($i=0; $i < count($estateguru) ; $i++) { 
             # code...
+            $fundingPlace=0;
         $id=$estateguru[$i]->id;
         $projectName=trim($estateguru[$i]->Project_Name);
         $goal=str_replace(",","",$estateguru[$i]->Goal);
@@ -54,6 +55,7 @@ class DashboardController extends Controller
         $linkToProject=$estateguru[$i]->Link_To_Project;
         $raisedToDate=$estateguru[$i]->Raised_To_Date;
         $fundingProgress=str_replace("%","",$estateguru[$i]->Funding_Progress);
+        $fundingProgress=str_replace(",","",$fundingProgress);
         $numberOfInvestors=str_replace(",","",$estateguru[$i]->Number_Of_Investors);
         $remainingToRaise=str_replace(",","",$estateguru[$i]->Remaining_To_Raise);
         $loanType=$estateguru[$i]->Loan_Type;
@@ -61,9 +63,23 @@ class DashboardController extends Controller
         $dateTimeRounded=Date('Y-m-d h:i:s',strtotime($estateguru[$i]->Date_Time_Rounded));
         $platForm=$estateguru[$i]->Platform;
         $fetchData=$estateguru[$i]->fetch_data;
+    //   dd($fundingProgress);
         $raisedToDate=$goal*($fundingProgress/100);
+         
+        if($raisedToDate == '')
+        {
+            DB::table('EstateguruNew')->where('id', $id)
+                ->update(['fetch_data' => 'yes']);
+                continue;
+        }
+
+        if($numberOfInvestors == '')
+        {
+            DB::table('EstateguruNew')->where('id', $id)
+                ->update(['fetch_data' => 'yes']);
+                continue;
+        }
         $avgTicket=$raisedToDate/$numberOfInvestors;
-       
         $estateguruProject=Project::where('project_name',$projectName)->first();
         if(!is_null($estateguruProject))
         {

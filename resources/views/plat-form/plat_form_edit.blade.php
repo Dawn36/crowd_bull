@@ -32,7 +32,7 @@
         </div>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2">Avg Interest Rate</label>
-            <input type="number" name="avg_interest_rate" value="{{$platForm->avg_interest_rate}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg Interest Rate here."  />
+            <input type="text" name="avg_interest_rate" value="{{$platForm->avg_interest_rate}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg Interest Rate here."  />
         </div>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2"># of projects funded</label>
@@ -48,7 +48,7 @@
         </div>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2"># of Investors</label>
-            <input type="number" name="no_of_investors" value="{{$platForm->plat_form}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of Investors here."  />
+            <input type="number" name="no_of_investors" value="{{$platForm->no_of_investors}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your # of Investors here."  />
         </div>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2">Avg. ticket size</label>
@@ -62,6 +62,16 @@
             <label class=" fw-bold fs-6 mb-2">Raised This Week</label>
             <input type="number" name="raised_in_past_7_days" value="{{$platForm->raised_in_past_7_days}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised This Week here."  />
         </div>
+        <div class="fv-row mb-7">
+            <label class=" fw-bold fs-6 mb-2">Percentage</label>
+            <input type="text" name="percentage" value="{{$platForm->percentage}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter percentage here."  />
+        </div>
+        <label class="form-label">Percentage Status</label>
+        <select class="form-select mb-2" data-control="select2" name="status" data-placeholder="Select an option" data-allow-clear="true" >
+            <option value="">Select Percentage Status</option>
+            <option value="increase" {{$platForm->status == 'increase' ? 'selected' : ''}}>Increase</option>
+            <option value="decrease" {{$platForm->status == 'decrease' ? 'selected' : ''}}>Decrease</option>
+        </select>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2">URL</label>
             <input type="text" name="url" value="{{$platForm->url}}" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter url here." />

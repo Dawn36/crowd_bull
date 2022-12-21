@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PlatFormController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\PlatformRatingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::resource('blogs', BlogController::class);
 Route::resource('projects', ProjectController::class);
 
 Route::resource('plat_form', PlatFormController::class);
+Route::resource('platform_rating', PlatformRatingController::class);
 // Route::resource('user', UserController::class);
 
 

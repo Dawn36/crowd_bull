@@ -98,7 +98,7 @@
                                            <td>{{$project[$i]->Loan_Duration}}</td> 
                                            <td>{{$project[$i]->Interest}}</td> 
                                            <td>{{$project[$i]->LTV}}</td> 
-                                           <td>{{$project[$i]->Link_To_Project}}</td> 
+                                           <td><a href="{{$project[$i]->Link_To_Project}}" target="_blank">click me</a></td> 
                                            <td>{{$project[$i]->Raised_To_Date}}</td> 
                                            <td>{{$project[$i]->Funding_Progress}}</td> 
                                            <td>{{$project[$i]->Number_Of_Investors}}</td> 

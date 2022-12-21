@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PlatForm;
 use App\Models\Project;
 use App\Models\Blog;
+use App\Models\PlatformRating;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,38 @@ class WebsiteController extends Controller
         {
             $project=Project::orderby('id','desc')->where('funding_status','in process')->limit(30)->get();
         }
+        elseif($request->current_open == 'funded')
+        {
+            $project=Project::orderby('id','desc')->where('funding_status','funded')->limit(30)->get();
+        }
+        elseif($request->current_open == 'not_funded')
+        {
+            $project=Project::orderby('id','desc')->where('funding_status','not funded')->limit(30)->get();
+        }
+        elseif($request->current_open == 'estateguru')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','estateguru.co')->limit(30)->get();
+        }
+        elseif($request->current_open == 'rendity')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','rendity.com')->limit(30)->get();
+        }
+        elseif($request->current_open == 'profitus')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','profitus.com')->limit(30)->get();
+        }
+        elseif($request->current_open == 'housers')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','housers.com')->limit(30)->get();
+        }
+        elseif($request->current_open == 'nordstreet')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','nordstreet.com')->limit(30)->get();
+        }
+        elseif($request->current_open == 'crowdestate')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','housers.com')->limit(30)->get();
+        }
         else
         {
             $project=Project::orderby('id','desc')->limit(30)->get();
@@ -43,7 +76,8 @@ class WebsiteController extends Controller
     public function platForm()
     {
         $platForm=PlatForm::orderby('capital_raised_to_date','desc')->get();
-        return view('website/website_plateform',compact('platForm'));
+        $platformRating=PlatformRating::get();
+        return view('website/website_plateform',compact('platForm','platformRating'));
     }
     public function platFormDetails($platFormName)
     {
@@ -74,6 +108,46 @@ class WebsiteController extends Controller
         {
             $project=Project::orderby('id','desc')->where('funding_status','in process')->paginate(30);
             $project->appends(['current_open'=>'current_open']);
+        }
+        elseif($request->current_open == 'funded')
+        {
+            $project=Project::orderby('id','desc')->where('funding_status','funded')->paginate(30);
+            $project->appends(['current_open'=>'funded']);
+        }
+        elseif($request->current_open == 'not_funded')
+        {
+            $project=Project::orderby('id','desc')->where('funding_status','not funded')->paginate(30);
+            $project->appends(['current_open'=>'not_funded']);
+        }
+        elseif($request->current_open == 'estateguru')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','estateguru.co')->paginate(30);
+            $project->appends(['current_open'=>'estateguru']);
+        }
+        elseif($request->current_open == 'rendity')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','rendity.com')->paginate(30);
+            $project->appends(['current_open'=>'rendity']);
+        }
+        elseif($request->current_open == 'profitus')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','profitus.com')->paginate(30);
+            $project->appends(['current_open'=>'profitus']);
+        }
+        elseif($request->current_open == 'housers')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','housers.com')->paginate(30);
+            $project->appends(['current_open'=>'housers']);
+        }
+        elseif($request->current_open == 'nordstreet')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','nordstreet.com')->paginate(30);
+            $project->appends(['current_open'=>'nordstreet']);
+        }
+        elseif($request->current_open == 'crowdestate')
+        {
+            $project=Project::orderby('id','desc')->where('plat_form','housers.com')->paginate(30);
+            $project->appends(['current_open'=>'crowdestate']);
         }
         else
         {

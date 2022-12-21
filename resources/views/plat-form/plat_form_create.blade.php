@@ -31,7 +31,7 @@
         </div>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2">Avg Interest Rate</label>
-            <input type="number" name="avg_interest_rate" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg Interest Rate here."  />
+            <input type="text" name="avg_interest_rate" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Avg Interest Rate here."  />
         </div>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2"># of projects funded</label>
@@ -61,6 +61,16 @@
             <label class=" fw-bold fs-6 mb-2">Raised This Week</label>
             <input type="number" name="raised_in_past_7_days" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised This Week here."  />
         </div>
+        <div class="fv-row mb-7">
+            <label class=" fw-bold fs-6 mb-2">Percentage</label>
+            <input type="text" name="percentage" value="" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter percentage here."  />
+        </div>
+        <label class="form-label">Percentage Status</label>
+        <select class="form-select mb-2" data-control="select2" name="status" data-placeholder="Select an option" data-allow-clear="true" >
+            <option value="">Select Percentage Status</option>
+            <option value="increase" >Increase</option>
+            <option value="decrease" >Decrease</option>
+        </select>
         <div class="fv-row mb-7">
             <label class=" fw-bold fs-6 mb-2">URL</label>
             <input type="text" name="url" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter url here." />

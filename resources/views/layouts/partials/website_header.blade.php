@@ -10,6 +10,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('theme/website-assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{{ asset('theme/website-assets/style.css')}}">
     <link rel=“canonical” href=“https://crowdbulls.com/” />
+
+    <link href="{{ asset('theme/assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
+
 </head>
 
 <style>

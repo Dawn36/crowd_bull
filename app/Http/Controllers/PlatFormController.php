@@ -68,6 +68,8 @@ class PlatFormController extends Controller
             'raised_in_past_7_days' => $request->raised_in_past_7_days,
             'plat_form_image' => $path,
             'url' => $request->url,
+            'status' => $request->status,
+            'percentage' => $request->percentage,
             'description' => $request->description,
             'created_at' => Controller::currentDateTime(),
             'created_by' => Auth::user()->id,
@@ -124,6 +126,8 @@ class PlatFormController extends Controller
         $adds['raised_in_past_30_days'] = $request->raised_in_past_30_days;
         $adds['raised_in_past_7_days'] = $request->raised_in_past_7_days;
         $adds['description'] = $request->description;
+        $adds['status'] = $request->status;
+        $adds['percentage'] = $request->percentage;
         $adds['url'] = $request->url;
         $adds['updated_by'] = Auth::user()->id;
         $adds['updated_at'] = Controller::currentDateTime();
