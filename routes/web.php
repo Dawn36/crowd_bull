@@ -48,10 +48,12 @@ Route::post('/settings/{id}/updatePassword', [SettingsController::class, 'update
 
 Route::get('/', [WebsiteController::class, 'home'])->name('index');
 Route::get('crowdfunding-platform', [WebsiteController::class, 'platForm'])->name('crowdfunding-platform');
+Route::get('get_project_home', [WebsiteController::class, 'homeProject'])->name('get_project_home');
+Route::get('get_project_page', [WebsiteController::class, 'ProjectPage'])->name('get_project_page');
 Route::get('crowdfunding-platforms/{platFormName}', [WebsiteController::class, 'platFormDetails'])->name('crowdfunding-platforms');
 Route::get('crowdfunding-projects', [WebsiteController::class, 'project'])->name('crowdfunding-projects');
 Route::get('articles', [WebsiteController::class, 'articles'])->name('articles');
-Route::get('article-single/{id}', [WebsiteController::class, 'articleDetails'])->name('article-single');
+Route::get('article-single/{slug}', [WebsiteController::class, 'articleDetails'])->name('article-single');
 Route::get('about-us', [WebsiteController::class, 'aboutUs'])->name('about-us');
 Route::get('privacy-policy', [WebsiteController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('ad-policy', [WebsiteController::class, 'adPolicy'])->name('ad-policy');

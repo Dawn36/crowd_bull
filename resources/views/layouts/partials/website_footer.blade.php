@@ -80,10 +80,8 @@
 </body>
 
 
-<script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script>
-<script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script>
-<script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js')}}"></script>
-
+{{-- <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script> --}}
+{{-- <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script> --}}
 <script src="{{ asset('theme/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
 
 
@@ -106,22 +104,22 @@
             { orderable: false, targets: '_all' }
         ]
         });
-        var table = $('#project').DataTable({
-            fixedHeader: true,
-            paging: false,
-        columnDefs: [
-            { orderable: true, className: 'reorder', targets: 3 },
-            { orderable: true, className: 'reorder', targets: 4 },
-            { orderable: true, className: 'reorder', targets: 5 },
-            { orderable: true, className: 'reorder', targets: 6 },
-            { orderable: true, className: 'reorder', targets: 7 },
-            { orderable: true, className: 'reorder', targets: 8 },
-            { orderable: true, className: 'reorder', targets: 9 },
-            { orderable: true, className: 'reorder', targets: 10 },
-            { orderable: true, className: 'reorder', targets: 11 },
-            { orderable: false, targets: '_all' }
-        ]
-        });
+        // var table = $('#project').DataTable({
+        //     fixedHeader: true,
+        //     paging: false,
+        // columnDefs: [
+        //     { orderable: true, className: 'reorder', targets: 3 },
+        //     { orderable: true, className: 'reorder', targets: 4 },
+        //     { orderable: true, className: 'reorder', targets: 5 },
+        //     { orderable: true, className: 'reorder', targets: 6 },
+        //     { orderable: true, className: 'reorder', targets: 7 },
+        //     { orderable: true, className: 'reorder', targets: 8 },
+        //     { orderable: true, className: 'reorder', targets: 9 },
+        //     { orderable: true, className: 'reorder', targets: 10 },
+        //     { orderable: true, className: 'reorder', targets: 11 },
+        //     { orderable: false, targets: '_all' }
+        // ]
+        // });
         var table = $('.platfrom').DataTable({
             fixedHeader: true,
             paging: false,

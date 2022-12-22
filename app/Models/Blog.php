@@ -15,6 +15,6 @@ class Blog extends Model
      */
     protected $fillable = [
         'user_id','categories_id','blog_thumbnail','blog_name','i_frame_link', 'status', 'description','alt_tag',
-        'meta_title', 'meta_description', 'meta_keywords', 'created_at', 'created_by','updated_at','updated_by',
+        'meta_title', 'meta_description', 'meta_keywords', 'created_at', 'created_by','updated_at','updated_by','slug'
     ];
 }

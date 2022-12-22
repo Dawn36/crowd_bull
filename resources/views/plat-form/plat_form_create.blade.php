@@ -62,11 +62,21 @@
             <input type="number" name="raised_in_past_7_days" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Raised This Week here."  />
         </div>
         <div class="fv-row mb-7">
-            <label class=" fw-bold fs-6 mb-2">Percentage</label>
-            <input type="text" name="percentage" value="" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter percentage here."  />
+            <label class=" fw-bold fs-6 mb-2">Raised in the past 30 days Percentage</label>
+            <input type="text" name="raised_in_the_past_30_days_percentage" value="" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter percentage here."  />
         </div>
-        <label class="form-label">Percentage Status</label>
-        <select class="form-select mb-2" data-control="select2" name="status" data-placeholder="Select an option" data-allow-clear="true" >
+        <label class="form-label">Raised in the past 30 days Percentage Status</label>
+        <select class="form-select mb-2" data-control="select2" name="raised_in_the_past_30_days_status" data-placeholder="Select an option" data-allow-clear="true" >
+            <option value="">Select Percentage Status</option>
+            <option value="increase" >Increase</option>
+            <option value="decrease" >Decrease</option>
+        </select>
+        <div class="fv-row mb-7">
+            <label class=" fw-bold fs-6 mb-2">Raised this week Percentage</label>
+            <input type="text" name="raised_this_week_percentage" value="" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter percentage here."  />
+        </div>
+        <label class="form-label">Raised this week Percentage Status</label>
+        <select class="form-select mb-2" data-control="select2" name="raised_this_week_status" data-placeholder="Select an option" data-allow-clear="true" >
             <option value="">Select Percentage Status</option>
             <option value="increase" >Increase</option>
             <option value="decrease" >Decrease</option>

@@ -10,6 +10,7 @@
         mix-blend-mode: multiply;
         /* border-radius: 50%; */
     }
+    
 </style>
 <section class="clearfix relative-block hero-banner inside-banner ">
     <div class="container">
@@ -51,37 +52,57 @@
                         <td>{{$a}}</td>
                         <td><a href="{{route('crowdfunding-platforms',$platForm[$i]->plat_form)}}" >{{ucwords($platForm[$i]->plat_form)}}</a></td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->capital_raised_to_date)}} </td>
-                        <td style="text-align: right;">{{number_format($platForm[$i]->avg_interest_rate)}}%</td>
+                        <td style="text-align: right;">{{$platForm[$i]->avg_interest_rate}}%</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_funded)}}</td>
                         {{-- <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_not_funded)}}</td> --}}
                         <td style="text-align: right;">{{number_format($platForm[$i]->no_of_project_open)}}</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->no_of_investors)}}</td>
                         <td style="text-align: right;">{{number_format($platForm[$i]->avg_ticket_size)}} </td>
                         <td style="text-align: right;">
-                            <div>{{number_format($platForm[$i]->raised_in_past_30_days)}}</div>
-                            @if($platForm[$i]->status == 'increase')
+                            @if(isset($platForm[$i]->raised_in_the_past_30_days_status))
+                            <div style="margin-top: 23px;">{{number_format($platForm[$i]->raised_in_past_30_days)}}</div>
+                            @else
+                            <div >{{number_format($platForm[$i]->raised_in_past_30_days)}}</div>
+                            @endif
+                            @if($platForm[$i]->raised_in_the_past_30_days_status == 'increase')
                             <span class="badge1 badge--success fc-success fs-1 lh-1 py-1 px-2 flex-center fw-black" style="height: 22px; background-color:transparent;">
                                 <span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path opacity="0.5" d="M13 9.59998V21C13 21.6 12.6 22 12 22C11.4 22 11 21.6 11 21V9.59998H13Z" fill="black" style="fill: #2ecc71;"></path>
-                                        <path d="M5.7071 7.89291C5.07714 8.52288 5.52331 9.60002 6.41421 9.60002H17.5858C18.4767 9.60002 18.9229 8.52288 18.2929 7.89291L12.7 2.3C12.3 1.9 11.7 1.9 11.3 2.3L5.7071 7.89291Z" fill="black" style="fill: #2ecc71;"></path>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" fill="#2ecc71" viewBox="0 0 512 512"><path d="M413.1 327.3l-1.8-2.1-136-156.5c-4.6-5.3-11.5-8.6-19.2-8.6-7.7 0-14.6 3.4-19.2 8.6L101 324.9l-2.3 2.6C97 330 96 333 96 336.2c0 8.7 7.4 15.8 16.6 15.8h286.8c9.2 0 16.6-7.1 16.6-15.8 0-3.3-1.1-6.4-2.9-8.9z"/></svg>
                                 </span>
-                                {{$platForm[$i]->percentage}}%
+                                {{$platForm[$i]->raised_in_the_past_30_days_percentage}}%
                             </span>
-                            @elseif($platForm[$i]->status == 'decrease')
+                            @elseif($platForm[$i]->raised_in_the_past_30_days_status == 'decrease')
                             <span class="badge1 badge--danger fc-danger fs-1 lh-1 py-1 px-2 flex-center fw-black" style="height: 22px; background-color:transparent;">
                                 <span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path opacity="0.5" d="M13 14.4V3.00003C13 2.40003 12.6 2.00003 12 2.00003C11.4 2.00003 11 2.40003 11 3.00003V14.4H13Z" fill="black" style="fill: #e74c3c;"></path>
-                                        <path d="M5.7071 16.1071C5.07714 15.4771 5.52331 14.4 6.41421 14.4H17.5858C18.4767 14.4 18.9229 15.4771 18.2929 16.1071L12.7 21.7C12.3 22.1 11.7 22.1 11.3 21.7L5.7071 16.1071Z" fill="black" style="fill: #e74c3c;"></path>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" fill="#e74c3c"  viewBox="0 0 512 512"><path d="M98.9 184.7l1.8 2.1 136 156.5c4.6 5.3 11.5 8.6 19.2 8.6 7.7 0 14.6-3.4 19.2-8.6L411 187.1l2.3-2.6c1.7-2.5 2.7-5.5 2.7-8.7 0-8.7-7.4-15.8-16.6-15.8H112.6c-9.2 0-16.6 7.1-16.6 15.8 0 3.3 1.1 6.4 2.9 8.9z"/></svg>
                                 </span>
-                                {{$platForm[$i]->percentage}}%
+                                {{$platForm[$i]->raised_in_the_past_30_days_percentage}}%
                             </span>
                             @endif
                         </td>
-                        <td style="text-align: right;">{{number_format($platForm[$i]->raised_in_past_7_days)}} </td>
+                        <td style="text-align: right;">
+                            @if(isset($platForm[$i]->raised_this_week_status))
+                            <div style="margin-top: 23px;">{{number_format($platForm[$i]->raised_in_past_7_days)}}</div>
+                            @else
+                            <div >{{number_format($platForm[$i]->raised_in_past_7_days)}}</div>
+                            @endif
+                            @if($platForm[$i]->raised_this_week_status == 'increase')
+                            <span class="badge1 badge--success fc-success fs-1 lh-1 py-1 px-2 flex-center fw-black" style="height: 22px; background-color:transparent;">
+                                <span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" fill="#2ecc71" viewBox="0 0 512 512"><path d="M413.1 327.3l-1.8-2.1-136-156.5c-4.6-5.3-11.5-8.6-19.2-8.6-7.7 0-14.6 3.4-19.2 8.6L101 324.9l-2.3 2.6C97 330 96 333 96 336.2c0 8.7 7.4 15.8 16.6 15.8h286.8c9.2 0 16.6-7.1 16.6-15.8 0-3.3-1.1-6.4-2.9-8.9z"/></svg>
+                                </span>
+                                {{$platForm[$i]->raised_this_week_percentage}}%
+                            </span>
+                            @elseif($platForm[$i]->raised_this_week_status == 'decrease')
+                            <span class="badge1 badge--danger fc-danger fs-1 lh-1 py-1 px-2 flex-center fw-black" style="height: 22px; background-color:transparent;">
+                                <span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" fill="#e74c3c"  viewBox="0 0 512 512"><path d="M98.9 184.7l1.8 2.1 136 156.5c4.6 5.3 11.5 8.6 19.2 8.6 7.7 0 14.6-3.4 19.2-8.6L411 187.1l2.3-2.6c1.7-2.5 2.7-5.5 2.7-8.7 0-8.7-7.4-15.8-16.6-15.8H112.6c-9.2 0-16.6 7.1-16.6 15.8 0 3.3 1.1 6.4 2.9 8.9z"/></svg>
+                                </span>
+                                {{$platForm[$i]->raised_this_week_percentage}}%
+                            </span>
+                            @endif
+                        </td>
+                        {{-- <td style="text-align: right;">{{number_format($platForm[$i]->raised_in_past_7_days)}} </td> --}}
                         <td><a href="{{$platForm[$i]->url}}" target="_bank" class="btn btn-primary --small">Register</a></td>
                     </tr>
                     @endfor

@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="{{ asset('theme/website-assets/style.css')}}">
     <link rel=“canonical” href=“https://crowdbulls.com/” />
 
-    <link href="{{ asset('theme/assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="https://nightly.datatables.net/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.dataTables.min.css" />
+    <script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js')}}"></script>
 </head>
 
 <style>

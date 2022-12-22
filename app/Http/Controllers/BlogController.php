@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -62,13 +63,12 @@ class BlogController extends Controller
                 $path = 'uploads/blogss/' . $userId . "/" . $file_name;
 
         }
-        
-        
         $user = Blog::create([
             'user_id' => $userId,
             'status' =>$request->status,
             'blog_thumbnail' => $path,
             'blog_name' => strtolower($request->blog_name),
+            'slug' => Str::slug($request->blog_name),
             'i_frame_link' => $request->i_frame_link,
             'description' => $request->description,
             'meta_title' => $request->meta_title,
@@ -135,6 +135,7 @@ class BlogController extends Controller
         
         $blog['status'] = $request->status;
         $blog['blog_name'] = strtolower($request->blog_name);
+        $blog['slug'] =  Str::slug($request->blog_name);
         $blog['i_frame_link'] = $request->i_frame_link;
         $blog['description'] = $request->description;
         $blog['meta_title'] = $request->meta_title;
