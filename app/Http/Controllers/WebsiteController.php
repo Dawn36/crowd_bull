@@ -35,7 +35,8 @@ class WebsiteController extends Controller
         $housers=$request->housers;
         $nordstreet=$request->nordstreet;
         $crowdestate=$request->crowdestate;
-        $project=Project::orderby('id','desc')->select(DB::raw("*,DATE_FORMAT(created_at, '%Y-%m-%d') AS created_ata"))
+        //orderby('id','desc')->
+        $project=Project::select(DB::raw("*,DATE_FORMAT(created_at, '%Y-%m-%d') AS created_ata"))
         ->when($currentOpen, function ($query, $currentOpen) {
             return $query->where('funding_status','in process');
         })
@@ -92,7 +93,8 @@ class WebsiteController extends Controller
         $housers=$request->housers;
         $nordstreet=$request->nordstreet;
         $crowdestate=$request->crowdestate;
-        $project=Project::orderby('id','desc')->select(DB::raw("*,DATE_FORMAT(created_at, '%Y-%m-%d') AS created_ata"))
+        //orderby('id','desc')->
+        $project=Project::select(DB::raw("*,DATE_FORMAT(created_at, '%Y-%m-%d') AS created_ata"))
         ->when($currentOpen, function ($query, $currentOpen) {
             return $query->where('funding_status','in process');
         })
@@ -149,72 +151,7 @@ class WebsiteController extends Controller
     
     public function project(Request $request)
     {
-        // if($request->current_open == 'fastest_funding_pace')
-        // {
-        //     $project=Project::orderby('funding_pace','ASC')->paginate(30);
-        //     $project->appends(['current_open'=>'fastest_funding_pace']);
-
-        // }
-        // elseif($request->current_open == 'added')
-        // {
-        //     $project=Project::where('created_at', '>', date("Y-m-d", strtotime('this week')))->orderby('id','desc')->paginate(30);
-        //     $project->appends(['current_open'=>'added']);
-
-        // }
-        // elseif($request->current_open == 'large')
-        // {
-        //     $project=Project::orderby('average_ticket','desc')->paginate(30);
-        //     $project->appends(['current_open'=>'large']);
-        // }
-        // elseif($request->current_open == 'current_open')
-        // {
-        //     $project=Project::orderby('id','desc')->where('funding_status','in process')->paginate(30);
-        //     $project->appends(['current_open'=>'current_open']);
-        // }
-        // elseif($request->current_open == 'funded')
-        // {
-        //     $project=Project::orderby('id','desc')->where('funding_status','funded')->paginate(30);
-        //     $project->appends(['current_open'=>'funded']);
-        // }
-        // elseif($request->current_open == 'not_funded')
-        // {
-        //     $project=Project::orderby('id','desc')->where('funding_status','not funded')->paginate(30);
-        //     $project->appends(['current_open'=>'not_funded']);
-        // }
-        // elseif($request->current_open == 'estateguru')
-        // {
-        //     $project=Project::orderby('id','desc')->where('plat_form','estateguru.co')->paginate(30);
-        //     $project->appends(['current_open'=>'estateguru']);
-        // }
-        // elseif($request->current_open == 'rendity')
-        // {
-        //     $project=Project::orderby('id','desc')->where('plat_form','rendity.com')->paginate(30);
-        //     $project->appends(['current_open'=>'rendity']);
-        // }
-        // elseif($request->current_open == 'profitus')
-        // {
-        //     $project=Project::orderby('id','desc')->where('plat_form','profitus.com')->paginate(30);
-        //     $project->appends(['current_open'=>'profitus']);
-        // }
-        // elseif($request->current_open == 'housers')
-        // {
-        //     $project=Project::orderby('id','desc')->where('plat_form','housers.com')->paginate(30);
-        //     $project->appends(['current_open'=>'housers']);
-        // }
-        // elseif($request->current_open == 'nordstreet')
-        // {
-        //     $project=Project::orderby('id','desc')->where('plat_form','nordstreet.com')->paginate(30);
-        //     $project->appends(['current_open'=>'nordstreet']);
-        // }
-        // elseif($request->current_open == 'crowdestate')
-        // {
-        //     $project=Project::orderby('id','desc')->where('plat_form','housers.com')->paginate(30);
-        //     $project->appends(['current_open'=>'crowdestate']);
-        // }
-        // else
-        // {
-        //     $project=Project::orderby('id','desc')->paginate(30);
-        // }
+      
         return view('website/website_project');
     }
     public function articles()

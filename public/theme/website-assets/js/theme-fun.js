@@ -1,20 +1,17 @@
-$(function () {
-
-    $(document).ready(function () {
-
-    });
+$(function() {
+    $(document).ready(function() {});
     $('[href="#"]').attr("href", "javascript:;");
     //*****************************
     // Match Height Functions
     //*****************************
-    $('.matchheight').matchHeight();
+    // $('.matchheight').matchHeight();
 
     //*****************************
     // Request Popup Form
     //*****************************
-    $('.tableTabs li').click(function () {
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
+    $(".tableTabs li").click(function() {
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
     });
 
     // $('#more-content-link').click(function () {
@@ -28,19 +25,17 @@ $(function () {
     //     $('.overlay-menu').fadeOut();
     // });
 
-    $(document).ready(function () {
-
+    $(document).ready(function() {
         /* Hamburger menu animation */
-        $('.open-button').click(function () {
-            $(this).toggleClass('open');
+        $(".open-button").click(function() {
+            $(this).toggleClass("open");
         });
 
         /* Menu fade/in out on mobile */
-        $(".open-button").click(function (e) {
+        $(".open-button").click(function(e) {
             e.preventDefault();
-            $(".mobile-menu").toggleClass('open');
+            $(".mobile-menu").toggleClass("open");
         });
-
     });
     //*****************************
     // Tabbing
@@ -66,146 +61,163 @@ $(function () {
 
     if ($(window).width() < 786) {
         // mobile nav
-        $('.mainnav > li > a').click(function () {
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-                $(this).parents('li').children('.sub-menu').slideUp();
+        $(".mainnav > li > a").click(function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(this).parents("li").children(".sub-menu").slideUp();
             } else {
-                $('.menu-item-has-children > a').removeAttr("href");
-                $(this).addClass('active');
-                $(this).parents('li').children('.sub-menu').slideDown();
-                $(this).parents('li').siblings('li').children('a').removeClass('active');
-                $(this).parents('li').siblings('li').children('.sub-menu').slideUp();
+                $(".menu-item-has-children > a").removeAttr("href");
+                $(this).addClass("active");
+                $(this).parents("li").children(".sub-menu").slideDown();
+                $(this)
+                    .parents("li")
+                    .siblings("li")
+                    .children("a")
+                    .removeClass("active");
+                $(this)
+                    .parents("li")
+                    .siblings("li")
+                    .children(".sub-menu")
+                    .slideUp();
             }
         });
 
-        $('.mainnav > li > ul > li > a').click(function () {
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-                $(this).siblings('.sub-menu').slideUp();
+        $(".mainnav > li > ul > li > a").click(function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(this).siblings(".sub-menu").slideUp();
             } else {
-                $(this).addClass('active');
-                $(this).parents('li').children('.sub-menu').slideDown();
-                $(this).parents('li').siblings('li').children('a').removeClass('active');
-                $(this).parents('li').siblings('li').children('.sub-menu').slideUp();
+                $(this).addClass("active");
+                $(this).parents("li").children(".sub-menu").slideDown();
+                $(this)
+                    .parents("li")
+                    .siblings("li")
+                    .children("a")
+                    .removeClass("active");
+                $(this)
+                    .parents("li")
+                    .siblings("li")
+                    .children(".sub-menu")
+                    .slideUp();
             }
         });
 
-        $('.mainnav > li > ul > li > ul > li > a').click(function () {
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-                $(this).siblings('.sub-menu').slideUp();
+        $(".mainnav > li > ul > li > ul > li > a").click(function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $(this).siblings(".sub-menu").slideUp();
             } else {
-                $(this).addClass('active');
-                $(this).parents('li').children('.sub-menu').slideDown();
-                $(this).parents('li').siblings('li').children('a').removeClass('active');
-                $(this).parents('li').siblings('li').children('.sub-menu').slideUp();
+                $(this).addClass("active");
+                $(this).parents("li").children(".sub-menu").slideDown();
+                $(this)
+                    .parents("li")
+                    .siblings("li")
+                    .children("a")
+                    .removeClass("active");
+                $(this)
+                    .parents("li")
+                    .siblings("li")
+                    .children(".sub-menu")
+                    .slideUp();
             }
         });
-
-    }
-    else {
-
-    }
+    } else {}
     //*****************************
     // Slick Slider
     //****************************
-    
+
     //*****************************
     // Mobile Navigation
     //*****************************
-    $('.overlay-menu').click(function () {
-        $('.overlay-menu').fadeToggle();
+    $(".overlay-menu").click(function() {
+        $(".overlay-menu").fadeToggle();
     });
-    $('.mobile-nav-btn').click(function () {
-        $('.mobile-nav-btn, .mobile-nav, .app-container, body').toggleClass('active');
-        $('.overlay-menu').fadeToggle();
+    $(".mobile-nav-btn").click(function() {
+        $(".mobile-nav-btn, .mobile-nav, .app-container, body").toggleClass(
+            "active"
+        );
+        $(".overlay-menu").fadeToggle();
 
-        $(document).mouseup(function (e) {
+        $(document).mouseup(function(e) {
             var container = $(".mobile-nav, .mobile-nav-btn");
 
             // if the target of the click isn't the container nor a descendant of the container
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                $('.mobile-nav-btn, .mobile-nav, .app-container').removeClass('active');
+            if (!container.is(e.target) &&
+                container.has(e.target).length === 0
+            ) {
+                $(".mobile-nav-btn, .mobile-nav, .app-container").removeClass(
+                    "active"
+                );
             }
         });
     });
-
 
     //*****************************
     // Responsive Slider
     //*****************************
     var tabrespsliders = {
-        1: { slider: '.difference-slider' }
+        1: { slider: ".difference-slider" },
     };
 
     //*****************************
     // Responsive Slider
     //*****************************
     var respsliders = {
-        1: { slider: '.res-slider' }
-
+        1: { slider: ".res-slider" },
     };
     //*****************************
     // Function for Responsive Slider 991
     //*****************************
 
-    $.each(tabrespsliders, function () {
-
+    $.each(tabrespsliders, function() {
         $(this.slider).slick({
             arrows: false,
             dots: true,
             autoplay: true,
             slidesToShow: 2,
             settings: "unslick",
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 2000,
-                    settings: "unslick"
+                    settings: "unslick",
                 },
                 {
                     breakpoint: 991,
                     settings: {
-                        unslick: true
-                    }
+                        unslick: true,
+                    },
                 },
                 {
                     breakpoint: 576,
                     settings: {
                         slidesToShow: 1,
-                        unslick: true
-                    }
-                }
-            ]
+                        unslick: true,
+                    },
+                },
+            ],
         });
     });
-
 
     //*****************************
     // Function for Responsive Slider 767
     //*****************************
 
-    $.each(respsliders, function () {
-
+    $.each(respsliders, function() {
         $(this.slider).slick({
             arrows: false,
             dots: true,
             autoplay: true,
             settings: "unslick",
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 2000,
-                    settings: "unslick"
+                    settings: "unslick",
                 },
                 {
                     breakpoint: 767,
                     settings: {
-                        unslick: true
-                    }
-                }
-            ]
+                        unslick: true,
+                    },
+                },
+            ],
         });
     });
-
-
 });

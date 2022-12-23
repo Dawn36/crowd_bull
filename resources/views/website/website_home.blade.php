@@ -152,11 +152,11 @@
         <div class="row">
             <div class="col-md-12">
                 {{-- <form id="added" method="GET" action="{{ route('index') }}"> --}}
-                <ul class="tableTabs">
+                <ul class="tableTabs" style="display:contents;">
                     <div class="row">
                         <div class="col">
                             <a href="{{ route('crowdfunding-projects') }}"> 
-                                <li class="">All</li></a>
+                                <li >All</li></a>
                         </div>
                         <div class="col">
                                 <input name="added" id="added" value=""  hidden/>
@@ -362,6 +362,7 @@
         </div>
     </div>
 </section>
+
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -369,11 +370,18 @@ $(document).ready(function(){
 dt =  $('#myTable').DataTable({
     processing: true,
     serverSide: true,
-    paging: false,
-    info: false,
-    fixedHeader : {
-    header : false,
-},
+    searching: false,
+    scrollX:        true,
+    scrollCollapse: true,
+    paging:         false,
+    fixedHeader: {
+            header: true,
+            // headerOffset: 65,
+            },
+    fixedColumns:   {
+        left: 2,
+        right: 0
+    },
     // order: [[0, 'desc']],
     // ajax: "{{ route('get_project_home') }}",
     ajax: {
@@ -411,7 +419,7 @@ dt =  $('#myTable').DataTable({
         { data: 'funding_pace' , name: 'funding_pace' },
         { data: 'funding_status' , name: 'funding_status' },
         { data: 'created_at' , name: 'created_at' },
-        { data: '',name: '',searchable: false},
+        { data: 'url',name: 'url',searchable: false},
     ],
     columnDefs: [
                 {
@@ -485,7 +493,7 @@ dt =  $('#myTable').DataTable({
                     className: 'numberright',
                     render: function (data, type, row) {
                         return `
-                        <td >${new Intl.NumberFormat().format(row.raised_to_date)} %</td>
+                        <td >${new Intl.NumberFormat().format(parseInt(row.raised_to_date))} </td>
                         `;
                     }
                 },
@@ -517,7 +525,7 @@ dt =  $('#myTable').DataTable({
                         else
                         {
                             return `
-                        <td >${new Intl.NumberFormat().format(row.investors)} </td>
+                        <td >${new Intl.NumberFormat().format(parseInt(row.investors))} </td>
                         `;  
                         }
                     }
@@ -536,7 +544,7 @@ dt =  $('#myTable').DataTable({
                         else
                         {
                             return `
-                        <td >${new Intl.NumberFormat().format(row.average_ticket)} </td>
+                        <td >${new Intl.NumberFormat().format(parseInt(row.average_ticket))} </td>
                         `;  
                         }
                     }
@@ -547,7 +555,7 @@ dt =  $('#myTable').DataTable({
                     className: 'numberright',
                     render: function (data, type, row) {
                             return `
-                        <td >${new Intl.NumberFormat().format(row.funding_pace)} </td>
+                        <td >${new Intl.NumberFormat().format(parseInt(row.funding_pace))} </td>
                         `;  
                     }
                 },

@@ -141,7 +141,7 @@
                                     @php $scoreFloor=floor($platformRating[$i]->score)+1; @endphp
                                     @endif
                                     @for ($j = $scoreFloor; $j < 5 ; $j++)
-                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star-o checked" style="font-size: 25px;"></span>
                                     @endfor
                                     {{-- <span class="fa fa-star fa-star-half-full checked"></span> --}}
                                     {{-- <span class="fa fa-star"></span> --}}

@@ -10,11 +10,16 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('theme/website-assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{{ asset('theme/website-assets/style.css')}}">
     <link rel=“canonical” href=“https://crowdbulls.com/” />
-
-    <link rel="stylesheet" href="https://nightly.datatables.net/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.dataTables.min.css" />
-    <script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js')}}"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.2.1/css/fixedColumns.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.3.1/css/fixedHeader.dataTables.min.css" />
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/4.2.1/js/dataTables.fixedColumns.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.3.1/js/dataTables.fixedHeader.min.js"></script>
+    {{-- <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-lib.js')}}"></script> --}}
+    <script type="text/javascript" src="{{ asset('theme/website-assets/js/theme-fun.js')}}"></script>
 </head>
 
 <style>

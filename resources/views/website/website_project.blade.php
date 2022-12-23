@@ -37,6 +37,9 @@ ul.pagination {
           font-size: 10px; }
           ul.pagination li a {
             line-height: 27px; } }
+            .numberright{
+        text-align: right
+    }
     </style>
 
 <section class="clearfix relative-block hero-banner inside-banner ">
@@ -56,7 +59,7 @@ ul.pagination {
 
         <div class="row">
             <div class="col-md-12">
-                <ul class="tableTabs">
+                <ul class="tableTabs" style="display:contents;">
                     <div class="row">
                         <div class="col">
                             <a href="{{ route('crowdfunding-projects') }}"> 
@@ -220,9 +223,17 @@ ul.pagination {
             serverSide: true,
             paging: true,
             info: false,
-            fixedHeader : {
-            header : false,
-        },
+            scrollX:        true,
+            scrollCollapse: true,
+            searching: false,
+            fixedHeader: {
+            header: true,
+            // headerOffset: 65,
+            },
+            fixedColumns:   {
+                left: 2,
+                right: 0
+            },
             // order: [[0, 'desc']],
             // ajax: "{{ route('get_project_home') }}",
             ajax: {
@@ -260,7 +271,7 @@ ul.pagination {
                 { data: 'funding_pace' , name: 'funding_pace' },
                 { data: 'funding_status' , name: 'funding_status' },
                 { data: 'created_at' , name: 'created_at' },
-                { data: '',name: '',searchable: false},
+                { data: 'url',name: 'url',searchable: false},
             ],
             columnDefs: [
                         {
@@ -284,7 +295,7 @@ ul.pagination {
                             className: 'numberright',
                             render: function (data, type, row) {
                                 return `
-                                <td >${row.goal} </td>
+                                <td >${new Intl.NumberFormat().format(row.goal)} </td>
                                 `;
                             }
                         },
@@ -334,7 +345,7 @@ ul.pagination {
                             className: 'numberright',
                             render: function (data, type, row) {
                                 return `
-                                <td >${new Intl.NumberFormat().format(row.raised_to_date)} %</td>
+                                <td >${new Intl.NumberFormat().format(parseInt(row.raised_to_date))} </td>
                                 `;
                             }
                         },
@@ -366,7 +377,7 @@ ul.pagination {
                                 else
                                 {
                                     return `
-                                <td >${new Intl.NumberFormat().format(row.investors)} </td>
+                                <td >${new Intl.NumberFormat().format(parseInt(row.investors))} </td>
                                 `;  
                                 }
                             }
@@ -385,7 +396,7 @@ ul.pagination {
                                 else
                                 {
                                     return `
-                                <td >${new Intl.NumberFormat().format(row.average_ticket)} </td>
+                                <td >${new Intl.NumberFormat().format(parseInt(row.average_ticket))} </td>
                                 `;  
                                 }
                             }
@@ -396,7 +407,7 @@ ul.pagination {
                             className: 'numberright',
                             render: function (data, type, row) {
                                     return `
-                                <td >${new Intl.NumberFormat().format(row.funding_pace)} </td>
+                                <td >${new Intl.NumberFormat().format(parseInt(row.funding_pace))} </td>
                                 `;  
                             }
                         },
