@@ -47,6 +47,14 @@
             <label class="required fw-bold fs-6 mb-2">Minimum ticket</label>
             <input type="text" name="minimum_ticket" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your Minimum ticket here." required/>
         </div>
+        <div class="fv-row mb-7">
+            <label class="required fw-bold fs-6 mb-2">More info url</label>
+            <input type="text" name="more_info_url" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your More info button url here." required/>
+        </div>
+        <div class="fv-row mb-7">
+            <label class="required fw-bold fs-6 mb-2">Register url</label>
+            <input type="text" name="register_url" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Please Enter your register button url here." required/>
+        </div>
     </div>
     <!--end::Scroll-->
     <!--begin::Actions-->

@@ -25,6 +25,7 @@
 <script>
     var hostUrl = "assets/";
 </script>
+
 <script src="{{ asset('theme/assets/js/scripts.bundle.js')}}"></script>
 <script src="{{ asset('theme/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
 <!--begin::Page Custom Javascript(used by this page)-->
@@ -40,6 +41,11 @@
 <script src="{{ asset('theme/assets/js/custom/select2.js')}}"></script>
 <script src="{{ asset('theme/assets/js/custom/documentation/editors/quill/basic.js')}}"></script>
 <!--end::Page Custom Javascript-->
+<script src="{{ asset('theme/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js')}}"></script>
+<script src="{{ asset('theme/assets/plugins/custom/ckeditor/ckeditor-inline.bundle.js')}}"></script>
+<script src="{{ asset('theme/assets/plugins/custom/ckeditor/ckeditor-balloon.bundle.js')}}"></script>
+<script src="{{ asset('theme/assets/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js')}}"></script>
+<script src="{{ asset('theme/assets/plugins/custom/ckeditor/ckeditor-document.bundle.js')}}"></script>
 <script>
     // $("#kt_datatable_example_1").DataTable();
     $(document).ready(function() {
@@ -87,7 +93,14 @@
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
         });
-
+        ClassicEditor
+    .create(document.querySelector('#kt_docs_ckeditor_classic'))
+    .then(editor => {
+        console.log(editor);
+    })
+    .catch(error => {
+        console.error(error);
+    });
        
     });
     function addBlog() {
@@ -97,6 +110,18 @@ $.ajax({
     url: "{{ route('blogs.create') }}",
     success: function(result) {
         $('#myModalXlHeading').html('Add Blog');
+        $('#modalBodyXl').html(result);
+        $('#myModalXl').modal('show');
+    }
+});
+}
+function addReview() {
+
+$.ajax({
+    type: 'GET',
+    url: "{{ route('re-view.create') }}",
+    success: function(result) {
+        $('#myModalXlHeading').html('Add Review');
         $('#modalBodyXl').html(result);
         $('#myModalXl').modal('show');
     }

@@ -160,6 +160,24 @@ class WebsiteController extends Controller
 
         return view('website/website_articles',compact('blog'));
     }
+    public function articleDetails($slug)
+    {
+        $blog= DB::select(DB::raw("SELECT *,b.id AS blog_id,b.created_at AS blog_created_at FROM blogs b INNER JOIN `users` u ON u.`id`=b.`user_id` WHERE b.`status`='active' ORDER BY b.`id` DESC LIMIT 3"));
+        $blogDetails= DB::select(DB::raw("SELECT *,b.id AS blog_id,b.created_at AS blog_created_at FROM blogs b INNER JOIN `users` u ON u.`id`=b.`user_id` WHERE b.`status`='active' AND b.slug='$slug' ORDER BY b.`id` DESC "));
+        return view('website/website_article_single',compact('blog','blogDetails'));
+    }
+    public function review()
+    {
+        $review= DB::select(DB::raw("SELECT *,r.id AS review_id,r.created_at AS review_created_at FROM reviews r INNER JOIN `users` u ON u.`id`=r.`user_id` WHERE r.`status`='active' ORDER BY r.`id` DESC"));
+
+        return view('website/website_review',compact('review'));
+    }
+    public function reviewDetails($slug)
+    {
+        $review= DB::select(DB::raw("SELECT *,r.id AS review_id,r.created_at AS review_created_at FROM reviews r INNER JOIN `users` u ON u.`id`=r.`user_id` WHERE r.`status`='active' ORDER BY r.`id` DESC LIMIT 3"));
+        $reviewDetails= DB::select(DB::raw("SELECT *,r.id AS review_id,r.created_at AS review_created_at FROM reviews r INNER JOIN `users` u ON u.`id`=r.`user_id` WHERE r.`status`='active' AND r.slug='$slug' ORDER BY r.`id` DESC "));
+        return view('website/website_review_detail',compact('review','reviewDetails'));
+    }
     public function aboutUs()
     {
         return view('website/website_about_us');
@@ -172,12 +190,7 @@ class WebsiteController extends Controller
     {
         return view('website/website_ad_policy');
     }
-    public function articleDetails($slug)
-    {
-        $blog= DB::select(DB::raw("SELECT *,b.id AS blog_id,b.created_at AS blog_created_at FROM blogs b INNER JOIN `users` u ON u.`id`=b.`user_id` WHERE b.`status`='active' ORDER BY b.`id` DESC LIMIT 3"));
-        $blogDetails= DB::select(DB::raw("SELECT *,b.id AS blog_id,b.created_at AS blog_created_at FROM blogs b INNER JOIN `users` u ON u.`id`=b.`user_id` WHERE b.`status`='active' AND b.slug='$slug' ORDER BY b.`id` DESC "));
-        return view('website/website_article_single',compact('blog','blogDetails'));
-    }
+    
     public static function header()
     {
         $platFormCount=PlatForm::count();

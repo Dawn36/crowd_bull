@@ -1,15 +1,15 @@
-<form id="" class="form d-flex flex-column flex-lg-row" method="POST" action="{{ route('blogs.update',$blog->id) }}" enctype="multipart/form-data">
+<form id="" class="form d-flex flex-column flex-lg-row" method="POST" action="{{ route('re-view.update',$review->id) }}" enctype="multipart/form-data">
     @method("PUT")
     @csrf
     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
         <div class="card card-flush py-4">
             <div class="card-header">
                 <div class="card-title">
-                    <h2>Blog Thumbnail</h2>
+                    <h2>Review Thumbnail</h2>
                 </div>
             </div>
             <div class="card-body text-center pt-0">
-                <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="background-image: url('{{ asset($blog->blog_thumbnail)}}')">
+                <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="background-image: url('{{ asset($review->review_thumbnail)}}')">
                     <div class="image-input-wrapper w-150px h-150px"></div>
                     <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
                         <i class="bi bi-pencil-fill fs-7"></i>
@@ -23,7 +23,7 @@
                         <i class="bi bi-x fs-2"></i>
                     </span>
                 </div>
-                <div class="text-muted fs-7">Set the Blog main image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+                <div class="text-muted fs-7">Set the Review main image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
             </div>
         </div>
         <div class="card card-flush py-4">
@@ -37,10 +37,10 @@
             </div>
             <div class="card-body pt-0">
                 <select class="form-select mb-2 kt_ecommerce_add_product_status_select" name="status" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="" required>
-                    <option value="active" {{$blog->status == 'active' ? 'selected' : '' }}>Active</option>
-                    <option value="inactive" {{$blog->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                    <option value="active" {{$review->status == 'active' ? 'selected' : '' }}>Active</option>
+                    <option value="inactive" {{$review->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                 </select>
-                <div class="text-muted fs-7">Set the Blog status.</div>
+                <div class="text-muted fs-7">Set the Review status.</div>
             </div>
         </div>
         
@@ -48,15 +48,15 @@
     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
         <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-n2">
             <li class="nav-item">
-                <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_add_blog_general">General</a>
+                <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_add_review_general">General</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-active-primary pb-4 " data-bs-toggle="tab" href="#kt_add_blog_meta_data">Meta Fields</a>
+                <a class="nav-link text-active-primary pb-4 " data-bs-toggle="tab" href="#kt_add_review_meta_data">Meta Fields</a>
             </li>
         </ul>
         <div class="tab-content">
             <!-- General -->
-            <div class="tab-pane fade show active" id="kt_add_blog_general" role="tab-panel" style="width: 757px;">
+            <div class="tab-pane fade show active" id="kt_add_review_general" role="tab-panel" style="width: 757px;">
                 <div class="d-flex flex-column gap-7 gap-lg-10">
                     <div class="card card-flush py-4">
                         <div class="card-header">
@@ -66,31 +66,31 @@
                         </div>
                         <div class="card-body pt-0">
                             <div class="mb-10 fv-row">
-                                <label class="required form-label">Blog Name</label>
-                                <input type="text" name="blog_name" class="form-control mb-2" placeholder="Blog name" value="{{$blog->blog_name}}" required />
-                                <div class="text-muted fs-7">Blog name is required and recommended to be unique.</div>
+                                <label class="required form-label">Review Name</label>
+                                <input type="text" name="review_name" class="form-control mb-2" placeholder="review name" value="{{$review->review_name}}" required />
+                                <div class="text-muted fs-7">Review name is required and recommended to be unique.</div>
                             </div>
                             
                             <div class="mb-10 fv-row">
                                 <label class="required form-label">Youtube/ SoundCloud iFrame Link:</label>
-                                <textarea  name="i_frame_link" class="form-control" cols="30" rows="3" placeholder="Youtube/ SoundCloud iFrame Link" >{{$blog->i_frame_link}}</textarea>
+                                <textarea  name="i_frame_link" class="form-control" cols="30" rows="3" placeholder="Youtube/ SoundCloud iFrame Link" >{{$review->i_frame_link}}</textarea>
                                 <div class="text-muted fs-7">If you have any Youtube/ SoundCloud iFrame Link kindly put it here.</div>
                             </div>
                             <div>
                                 <label class="form-label">Description</label>
-                                {{-- <textarea hidden  name="description" id='description'>{{$blog->description}}</textarea> --}}
+                                {{-- <textarea hidden  name="description" id='description'>{{$review->description}}</textarea> --}}
                                 <textarea name="description" id="kt_docs_ckeditor_classic" required>
-                                    {{$blog->description}}
+                                    {{$review->description}}
                                 </textarea>
                                 {{-- <div name="kt_ecommerce_add_product_description" id="kt_docs_quill_basic1" class="min-h-200px mb-2 kt_docs_quill_basic1"></div> --}}
-                                <div class="text-muted fs-7">Set a description to the Blog for better visibility.</div>
+                                <div class="text-muted fs-7">Set a description to the Review for better visibility.</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Meta Data -->
-            <div class="tab-pane fade " id="kt_add_blog_meta_data" role="tab-panel">
+            <div class="tab-pane fade " id="kt_add_review_meta_data" role="tab-panel">
                 <div class="d-flex flex-column gap-7 gap-lg-10">
                     <div class="card card-flush py-4">
                         <div class="card-header">
@@ -101,17 +101,17 @@
                         <div class="card-body pt-0">
                             <div class="mb-10 fv-row">
                                 <label class="required form-label">Meta Title:</label>
-                                <input type="text" name="meta_title" class="form-control mb-2" placeholder="Meta Title" value="{{$blog->meta_title}}" required />
+                                <input type="text" name="meta_title" class="form-control mb-2" placeholder="Meta Title" value="{{$review->meta_title}}" required />
                                 <div class="text-muted fs-7">Meta Title is required for SEO</div>
                             </div>
                             <div class="mb-10 fv-row">
                                 <label class="required form-label">Meta Description:</label>
-                                <textarea name="meta_description" class="form-control" cols="30" rows="3" placeholder="Meta Description" required>{{$blog->meta_description}}</textarea>
+                                <textarea name="meta_description" class="form-control" cols="30" rows="3" placeholder="Meta Description" required>{{$review->meta_description}}</textarea>
                                 <div class="text-muted fs-7">Meta Description is required for SEO</div>
                             </div>
                             <div class="mb-10 fv-row">
                                 <label class="required form-label">Meta Keywords:</label>
-                                <input type="text" name="meta_keywords" class="form-control mb-2" placeholder="Meta Keywords" value="{{$blog->meta_keywords}}" required/>
+                                <input type="text" name="meta_keywords" class="form-control mb-2" placeholder="Meta Keywords" value="{{$review->meta_keywords}}" required/>
                                 <div class="text-muted fs-7">Meta Keywords is required for SEO</div>
                             </div>
                         </div>

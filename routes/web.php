@@ -9,6 +9,7 @@ use App\Http\Controllers\PlatFormController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\PlatformRatingController;
+use App\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::resource('blogs', BlogController::class);
+Route::resource('re-view', ReviewController::class);
 
 Route::resource('projects', ProjectController::class);
 
@@ -53,7 +55,9 @@ Route::get('get_project_page', [WebsiteController::class, 'ProjectPage'])->name(
 Route::get('crowdfunding-platforms/{platFormName}', [WebsiteController::class, 'platFormDetails'])->name('crowdfunding-platforms');
 Route::get('crowdfunding-projects', [WebsiteController::class, 'project'])->name('crowdfunding-projects');
 Route::get('articles', [WebsiteController::class, 'articles'])->name('articles');
-Route::get('article-single/{slug}', [WebsiteController::class, 'articleDetails'])->name('article-single');
+Route::get('article/{slug}', [WebsiteController::class, 'articleDetails'])->name('article');
+Route::get('reviews', [WebsiteController::class, 'review'])->name('reviews');
+Route::get('review/{slug}', [WebsiteController::class, 'reviewDetails'])->name('review');
 Route::get('about-us', [WebsiteController::class, 'aboutUs'])->name('about-us');
 Route::get('privacy-policy', [WebsiteController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('ad-policy', [WebsiteController::class, 'adPolicy'])->name('ad-policy');

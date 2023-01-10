@@ -311,14 +311,14 @@
                     </div>
                     <div class="content_node">
                         <p class="subtitle">
-                            Guides
+                            Article
                         </p>
                         <h5 class="fc-black title matchheight">
-                            <a href="{{route('article-single',$blog[$i]->slug)}}"> {{substr(ucwords($blog[$i]->blog_name),0,60)}}</a>
+                            <a href="{{route('article',$blog[$i]->slug)}}"> {{substr(ucwords($blog[$i]->blog_name),0,60)}}</a>
                         </h5>
                         <p>
                             @php echo html_entity_decode(substr($blog[$i]->description, 0, 200)) @endphp
-                            <a href="{{route('article-single',$blog[$i]->slug)}}" class="subtitle">Read More</a>
+                            <a href="{{route('article',$blog[$i]->slug)}}" class="subtitle">Read More</a>
                         </p>
                         <div class="profile">
                             <div class="profile-img">

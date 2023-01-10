@@ -88,6 +88,7 @@
                                         {{ Route::currentRouteName() == 'profitus'  ? 'Profitus' : '' }}
                                         {{ Route::currentRouteName() == 'rendity'  ? 'Rendity' : '' }}
                                         {{ Route::currentRouteName() == 'blogs.show' || Route::currentRouteName() == 'blogs.index'  ? 'Blogs' : '' }}
+                                        {{ Route::currentRouteName() == 'review.show' || Route::currentRouteName() == 'review.index'  ? 'Reviews' : '' }}
                                         {{ Route::currentRouteName() == 'projects.show' || Route::currentRouteName() == 'projects.index'  ? 'Projects' : '' }}
                                         {{ Route::currentRouteName() == 'plat_form.show' || Route::currentRouteName() == 'plat_form.index'  ? 'Plat Form' : '' }}
                                         

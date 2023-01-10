@@ -76,8 +76,11 @@
                             </div>
                             <div>
                                 <label class="form-label">Description</label>
-                                <textarea hidden  name="description" id='description'></textarea>
-                                <div name="kt_ecommerce_add_product_description" id="kt_docs_quill_basic1" class="min-h-200px mb-2 kt_docs_quill_basic1"></div>
+                                {{-- <textarea hidden  name="description" id='description'></textarea> --}}
+                                <textarea name="description" id="kt_docs_ckeditor_classic" required>
+                                   
+                                </textarea>
+                                {{-- <div name="kt_ecommerce_add_product_description" id="kt_docs_quill_basic1" class="min-h-200px mb-2 kt_docs_quill_basic1"></div> --}}
                                 <div class="text-muted fs-7">Set a description to the Blog for better visibility.</div>
                             </div>
                         </div>
@@ -123,40 +126,49 @@
 <!--begin::Javascript-->
 
 <script>
-     var toolbarOptions = [
-                    
-                ['bold', 'italic', 'underline', 'strike'],
-                ['image', 'code-block'],
-                [ 'link', 'image' ],  
-                ['blockquote', 'code-block'],
-
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-                [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-                [{ 'direction': 'rtl' }],                         // text direction
-
-                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-                [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-
-                ['clean']                                         // remove formatting button        // add's image support
-
-            ];
-
-      var quill = new Quill('.kt_docs_quill_basic1', {
-            modules: {
-                toolbar: toolbarOptions
-            },
-            placeholder: 'Type your text here...',
-            theme: 'snow' // or 'bubble'
-        });
-
-    quill.on('text-change', function() {
-        document.getElementById("description").value = quill.root.innerHTML;
+    ClassicEditor
+    .create(document.querySelector('#kt_docs_ckeditor_classic'))
+    .then(editor => {
+        console.log(editor);
+    })
+    .catch(error => {
+        console.error(error);
     });
+    //  var toolbarOptions = [
+                    
+    //             ['bold', 'italic', 'underline', 'strike'],
+    //             ['image', 'code-block'],
+    //             [ 'link', 'image' ],  
+    //             ['blockquote', 'code-block'],
+                
+
+    //             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    //             [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    //             [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    //             [{ 'direction': 'rtl' }],                         // text direction
+
+    //             [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    //             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    //             [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    //             [{ 'font': [] }],
+    //             [{ 'align': [] }],
+
+    //             ['clean']                                         // remove formatting button        // add's image support
+
+    //         ];
+
+    //   var quill = new Quill('.kt_docs_quill_basic1', {
+    //         modules: {
+    //             toolbar: toolbarOptions
+    //         },
+    //         placeholder: 'Type your text here...',
+    //         theme: 'snow' // or 'bubble'
+    //     });
+
+    // quill.on('text-change', function() {
+    //     document.getElementById("description").value = quill.root.innerHTML;
+    // });
 
     $(document).ready(function() {
           

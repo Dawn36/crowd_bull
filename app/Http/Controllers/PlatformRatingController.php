@@ -55,6 +55,8 @@ class PlatformRatingController extends Controller
         }
         $data = PlatformRating::create([
             'platform_name' => $request->platform_name,
+            'more_info_url' => $request->more_info_url,
+            'register_url' => $request->register_url,
             'score' => $request->stars,
             'description' => $request->description,
             'minimum_ticket' => $request->minimum_ticket,
@@ -105,9 +107,10 @@ class PlatformRatingController extends Controller
         $adds['platform_name'] = $request->platform_name;
         $adds['score'] = $request->stars;
         $adds['description'] = $request->description;
+        $adds['more_info_url'] = $request->more_info_url;
+        $adds['register_url'] = $request->register_url;
         $adds['minimum_ticket'] = $request->minimum_ticket;
         $adds->save();
-
         if ($request->hasFile('avatar')) {
             File::delete($adds->path);
             $path = "uploads/platformsrating/" . $userId;

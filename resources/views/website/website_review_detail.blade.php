@@ -6,21 +6,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="fc-primary">{{ucwords($blogDetails[0]->blog_name)}}</h1>
-                <p class="fw-semi-bold">Posted On : {{DATE("F j, Y",strtotime($blogDetails[0]->blog_created_at))}}</p>
+                <h1 class="fc-primary">{{ucwords($reviewDetails[0]->review_name)}}</h1>
+                <p class="fw-semi-bold">Posted On : {{DATE("F j, Y",strtotime($reviewDetails[0]->review_created_at))}}</p>
 
                 <div class="img-node mbpx-10 pbpx-20">
-                    <img src="{{ asset($blogDetails[0]->blog_thumbnail)}}" alt="">
+                    <img src="{{ asset($reviewDetails[0]->review_thumbnail)}}" alt="">
                 </div>
-                @php echo html_entity_decode($blogDetails[0]->description) @endphp
+                @php echo html_entity_decode($reviewDetails[0]->description) @endphp
                 <div class="profile">
                     <div class="profile-img">
                         <img src="{{ asset('theme/website-assets/images/profile.jpg')}}" alt="">
                     </div>
                     <div class="profile-content">
-                        <h6 class="name">{{ucwords($blogDetails[0]->first_name)}} {{ucwords($blogDetails[0]->last_name)}}</h6>
+                        <h6 class="name">{{ucwords($reviewDetails[0]->first_name)}} {{ucwords($reviewDetails[0]->last_name)}}</h6>
                         <p class="date">
-                            {{DATE("F j, Y",strtotime($blogDetails[0]->blog_created_at))}}
+                            {{DATE("F j, Y",strtotime($reviewDetails[0]->review_created_at))}}
                         </p>
                     </div>
                 </div>
@@ -37,31 +37,31 @@
             </div>
         </div>
         <div class="row">
-            @for ($i = 0; $i < count($blog); $i++)
+            @for ($i = 0; $i < count($review); $i++)
             <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
                 <div class="box blog" style="height: 590px;">
                     <div class="img_node">
-                        <img src="{{ asset($blog[$i]->blog_thumbnail)}}" alt="">
+                        <img src="{{ asset($review[$i]->review_thumbnail)}}" alt="">
                     </div>
                     <div class="content_node">
                         <p class="subtitle">
-                            Article
+                            Review
                         </p>
                         <h5 class="fc-black title matchheight">
-                            <a href="{{route('article',$blog[$i]->slug)}}" > {{ucwords($blog[$i]->blog_name)}}</a>
+                            <a href="{{route('review',$review[$i]->slug)}}" > {{ucwords($review[$i]->review_name)}}</a>
                         </h5>
                         <p>
-                            {{substr(ucfirst(strip_tags($blog[$i]->description)), 0, 200).'...'}}
-                            <a href="{{route('article',$blog[$i]->slug)}}" class="subtitle">Read More</a>
+                            {{substr(ucfirst(strip_tags($review[$i]->description)), 0, 200).'...'}}
+                            <a href="{{route('review',$review[$i]->slug)}}" class="subtitle">Read More</a>
                         </p>
                         <div class="profile">
                             <div class="profile-img">
                                 <img src="{{ asset('theme/website-assets/images/profile.jpg')}}" alt="">
                             </div>
                             <div class="profile-content">
-                                <h6 class="name">{{ucwords($blog[$i]->first_name)}} {{ucwords($blog[$i]->last_name)}}</h6>
+                                <h6 class="name">{{ucwords($review[$i]->first_name)}} {{ucwords($review[$i]->last_name)}}</h6>
                                 <p class="date">
-                                    {{DATE("F j, Y",strtotime($blog[$i]->blog_created_at))}}
+                                    {{DATE("F j, Y",strtotime($review[$i]->review_created_at))}}
                                 </p>
                             </div>
                         </div>

@@ -159,8 +159,8 @@
                         <p class="mb-5 fc-secondary">{{$platformRating[$i]->description}}</p>
                         <p class="mb-5"><b>Minimum ticket: {{$platformRating[$i]->minimum_ticket}}</b></p>
                         <div class="inner-first-div mb-5 align-center">
-                            <a href="" class="btn btn-secondary --small">MORE INFO</a>
-                            <a href="" class="btn btn-primary --small">Register</a>
+                            <a href="{{$platformRating[$i]->more_info_url}}" class="btn btn-secondary --small">MORE INFO</a>
+                            <a href="{{$platformRating[$i]->register_url}}" class="btn btn-primary --small">Register</a>
                         </div>
                     </div>
                 </div>

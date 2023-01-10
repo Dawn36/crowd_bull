@@ -37,6 +37,16 @@ class DashboardController extends Controller
          $this->NordstreetNew();
          $this->ProfitusNew();
          $this->RendityNew();
+        $this->platFormData('Crowdestate_General');
+        $this->platFormData('Estateguru_General');
+        $this->platFormData('Housers_General');
+        $this->platFormData('letsinvest_Genegal'); 
+        $this->platFormData('Nordstreet_General');
+        $this->platFormData('Profitus_General');
+        $this->platFormData('Raizers_General'); 
+        $this->platFormData('Reinvest24_General'); 
+        $this->platFormData('Rendity_General'); 
+        $this->platFormData('Rontgen_General');
        
         
     }
@@ -849,5 +859,61 @@ class DashboardController extends Controller
                 ->update(['fetch_data' => 'yes']);
         } 
     }
+    }
+    protected function platFormData($table)
+    {
+        $day7=Date("Y-m-d",strtotime("-7 days"));
+        $day30=Date("Y-m-d",strtotime("-30 days"));
+        $data=DB::table($table)->orderby('id','desc')->limit('1')->get(); 
+        $data7Days=DB::table($table)->whereDate('Current_time_date',$day7)->orderby('id','desc')->limit('1')->get(); 
+        $data30Days=DB::table($table)->whereDate('Current_time_date',$day30)->orderby('id','desc')->limit('1')->get(); 
+        if(count($data) > 0)
+        {
+            $platFrom=trim($data[0]->Original_URL);
+            $capitalRaisedToDate=trim($data[0]->Capital_raised);
+            $avgInterestRate=isset($data[0]->Average_return) ? trim($data[0]->Average_return) : 0;
+            $noOfProjectFunded=isset($data[0]->Funded_projects) ? trim($data[0]->Funded_projects) : 0;
+            $noOfInvestors=isset($data[0]->No_of_investors) ? trim($data[0]->No_of_investors) : 0;
+            try {
+                $avgTicketSize=$capitalRaisedToDate/$noOfInvestors;
+            } catch (\Throwable $th) {
+                $avgTicketSize=0;
+            }
+            try {
+                $raisedInThePast30DaysPercentage=round(trim($data30Days[0]->Capital_raised)/$capitalRaisedToDate,2);
+                $increase30Status='increase';
+            } catch (\Throwable $th) {
+                $raisedInThePast30DaysPercentage=0;
+                $increase30Status=(NULL);
+            }
+            try {
+                $raisedThisWeekPercentage=round(trim($data7Days[0]->Capital_raised)/$capitalRaisedToDate);
+                $increase7Status='increase';
+            } catch (\Throwable $th) {
+                $raisedThisWeekPercentage=0;
+                $increase7Status=(NULL);
+            }
+            try {
+              $raisedInPast30Days=$capitalRaisedToDate-isset($data30Days[0]->Capital_raised) ? trim($data30Days[0]->Capital_raised) : 0;
+            } catch (\Throwable $th) {
+                $raisedInPast30Days=0;
+            }
+            try {
+                $raisedInPast7Days=$capitalRaisedToDate-isset($data7Days[0]->Capital_raised) ? trim($data7Days[0]->Capital_raised) : 0;
+            } catch (\Throwable $th) {
+                $raisedInPast7Days=0;
+            }
+            $flight = PlatForm::updateOrCreate(
+                ['plat_form' => $platFrom],
+                ['capital_raised_to_date' => $capitalRaisedToDate, 'avg_interest_rate' => $avgInterestRate,
+                'no_of_project_funded' => $noOfProjectFunded, 'no_of_investors' => $noOfInvestors,
+                'avg_ticket_size' => $avgTicketSize, 'raised_in_past_30_days' => $raisedInPast30Days,
+                'raised_in_past_7_days' => $raisedInPast7Days, 'updated_at' => Date("Y-m-d H:i:s"),
+                'raised_in_the_past_30_days_percentage' => $raisedInThePast30DaysPercentage, 'raised_this_week_percentage' => $raisedThisWeekPercentage,
+                'raised_in_the_past_30_days_status' => $increase30Status, 'raised_this_week_status' => $increase7Status
+                ]
+            );
+        }
+        
     }
 }

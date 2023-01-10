@@ -123,8 +123,9 @@
                         <ul class="mainnav">
                             <li class="menu-item {{ Route::currentRouteName() == 'index'   ? 'active' : '' }}"><a href="{{route('index')}}" class="ss">Home</a></li>
                             <li class="menu-item {{ (Route::currentRouteName() == 'crowdfunding-platform' || Route::currentRouteName() == 'crowdfunding-platforms')   ? 'active' : '' }}"><a href="{{route('crowdfunding-platform')}}" class="ss">Platforms</a></li>
+                            <li class="menu-item {{ (Route::currentRouteName() == 'reviews' || Route::currentRouteName() == 'review' )   ? 'active' : '' }}"><a href="{{route('reviews')}}" class="ss">Reviews</a></li>
                             <li class="menu-item {{ (Route::currentRouteName() == 'crowdfunding-projects'  )  ? 'active' : '' }}"><a href="{{route('crowdfunding-projects')}}" class="ss">Projects</a></li>
-                            <li class="menu-item {{ (Route::currentRouteName() == 'articles' || Route::currentRouteName() == 'article-single')   ? 'active' : '' }}"><a href="{{route('articles')}}" class="ss">Articles</a></li>
+                            <li class="menu-item {{ (Route::currentRouteName() == 'articles' || Route::currentRouteName() == 'article' )   ? 'active' : '' }}"><a href="{{route('articles')}}" class="ss">Articles</a></li>
                             <li class="menu-item {{ (Route::currentRouteName() == 'about-us' || Route::currentRouteName() == 'privacy-policy' || Route::currentRouteName() == 'ad-policy')   ? 'active' : '' }}"><a href="{{route('about-us')}}" class="ss">About</a></li>
                         </ul>
                     </nav>
