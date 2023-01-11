@@ -880,26 +880,28 @@ class DashboardController extends Controller
                 $avgTicketSize=0;
             }
             try {
-                $raisedInThePast30DaysPercentage=round(trim($data30Days[0]->Capital_raised)/$capitalRaisedToDate,2);
+                $raisedInThePast30DaysPercentage=trim($data30Days[0]->Capital_raised)/$capitalRaisedToDate;
                 $increase30Status='increase';
             } catch (\Throwable $th) {
                 $raisedInThePast30DaysPercentage=0;
                 $increase30Status=(NULL);
             }
             try {
-                $raisedThisWeekPercentage=round(trim($data7Days[0]->Capital_raised)/$capitalRaisedToDate);
+                $raisedThisWeekPercentage=trim($data7Days[0]->Capital_raised)/$capitalRaisedToDate;
                 $increase7Status='increase';
             } catch (\Throwable $th) {
                 $raisedThisWeekPercentage=0;
                 $increase7Status=(NULL);
             }
             try {
-              $raisedInPast30Days=$capitalRaisedToDate-isset($data30Days[0]->Capital_raised) ? trim($data30Days[0]->Capital_raised) : 0;
+                $data=isset($data30Days[0]->Capital_raised) ? trim($data30Days[0]->Capital_raised) : 0;
+              $raisedInPast30Days=$capitalRaisedToDate-$data;
             } catch (\Throwable $th) {
                 $raisedInPast30Days=0;
             }
             try {
-                $raisedInPast7Days=$capitalRaisedToDate-isset($data7Days[0]->Capital_raised) ? trim($data7Days[0]->Capital_raised) : 0;
+                $data=isset($data7Days[0]->Capital_raised) ? trim($data7Days[0]->Capital_raised) : 0;
+                $raisedInPast7Days=$capitalRaisedToDate-$data;
             } catch (\Throwable $th) {
                 $raisedInPast7Days=0;
             }
